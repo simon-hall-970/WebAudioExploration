@@ -1,10 +1,10 @@
 {
-  "name": "boilerplate-react-webpack",
+  "name": "Explore React Audo API",
   "version": "0.2.2",
-  "description": "A webpack React starter",
+  "description": "An exploration of the Web Audi API with React and Redux",
   "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
   "main": "server/index.js",
-  "author": "EDA",
+  "author": "Simon Hall",
   "license": "ISC",
   "scripts": {
     "dev": "run-p dev:client dev:server",
