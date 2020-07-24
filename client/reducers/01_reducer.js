@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 
-//import reducer from './<reducer_file_name.js>
+import Kit from './drumKit.js'
 
 export default combineReducers({
-    //reducer,
+    Kit,
 })
 
