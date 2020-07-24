@@ -7,14 +7,15 @@ class TestInterface extends React.Component{
 
 
     loadSample = (evt) => {
+        let drumPiece = evt.target.innerText
         let fileName = evt.nativeEvent.target.value
-        let sample = audio.setupSample(fileName)
-        this.setState({
+        return audio.setupSample(fileName)
+        .then (sample => {
+            this.setState({
             ...this.state,
-            [evt.target.innerText]: sample
+            [drumPiece]: sample
         })
-        console.log('loadSample function state: ',this.state)
-        console.log('loadSample function sample: ',sample)
+        return sample})
     }
 
     play = (evt) => {
