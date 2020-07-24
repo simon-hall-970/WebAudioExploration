@@ -1,8 +1,9 @@
 import React from 'react'
+import TestInterface from './TestingInterface'
 
 const App = () => {
   return (
-    <h1>Web Audio API</h1>
+    <TestInterface />
   )
 }
 
