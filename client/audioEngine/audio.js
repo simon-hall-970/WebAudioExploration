@@ -12,3 +12,13 @@ function getFile(audioContext, filepath) {
     .then(audioBuffer => audioBuffer)
 }
 
+//take the file name as a string and call get file with audio Context to prepare sample
+function setupSample(fileName) {
+    const folder = '../../public/assets/samples/'
+    let filePath = folder + fileName
+    const sample = getFile(audioCtx, filePath)
+    return sample
+}
+//Should be able to take the above function and alter it. 
+//Try using an array of filenames, loop over and load multiple samples.
+//Will need to play with this once we get one file working.
