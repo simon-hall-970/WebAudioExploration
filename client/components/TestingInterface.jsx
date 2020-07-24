@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import * as audio from '../audioEngine/audio.js'
-import { loadOptions } from '@babel/core'
+import { addPiece } from '../actions/drumkit.js'
+
 
 class TestInterface extends React.Component{
     state={}
@@ -11,17 +13,15 @@ class TestInterface extends React.Component{
         let fileName = evt.nativeEvent.target.value
         return audio.setupSample(fileName)
         .then (sample => {
-            this.setState({
-            ...this.state,
-            [drumPiece]: sample
-        })
-        return sample})
+            console.log(sample)
+            this.props.dispatch(addPiece(drumPiece, sample))
+            return sample})
     }
 
     play = (evt) => {
         let context = audio.audioCtx
         let kitPiece = evt.target.value
-        let buffer = this.state[kitPiece]
+        let buffer = this.props.kit[kitPiece]
         audio.playSample(context, buffer)
     }
     render(){
@@ -55,4 +55,10 @@ class TestInterface extends React.Component{
     }
 }
 
-export default TestInterface
+function mapStateToProps(reduxState) {
+    return {
+        kit: reduxState.Kit
+    }
+}
+
+export default connect(mapStateToProps)(TestInterface)
