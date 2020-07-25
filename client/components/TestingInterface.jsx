@@ -1,21 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as audio from '../audioEngine/audio.js'
-import { addPiece } from '../actions/drumkit.js'
+import { addPiece, newKit } from '../actions/drumkit.js'
 
 
 class TestInterface extends React.Component{
-    state={}
-
+    
+    basicKit = {
+        highhat: 'closed_high_hat.wav',
+        snare: 'snare.wav',
+        bassdrum: 'bass_drum.wav'
+    }
+    
+    loadKit = (evt) => {
+        let kitName = this[evt.target.value]
+        let kitObj = audio.setupSampleKit(kitName)
+        this.props.dispatch(newKit(kitObj))
+    }
 
     loadSample = (evt) => {
         let drumPiece = evt.target.innerText
         let fileName = evt.nativeEvent.target.value
-        return audio.setupSample(fileName)
+        return audio.setupSamplePiece(fileName)
         .then (sample => {
             console.log(sample)
             this.props.dispatch(addPiece(drumPiece, sample))
-            return sample})
+            return sample
+        })
     }
 
     play = (evt) => {
@@ -27,6 +38,10 @@ class TestInterface extends React.Component{
     render(){
         return (
             <>
+                <div>
+                    <button onClick={this.loadKit} value='basicKit'>Load Basic Kit</button>
+                </div>
+
                 <div>
                     <button onClick={this.loadSample} value='snare.wav'>snare</button>
                     <button onClick={this.play} value="snare" >Play</button>

@@ -6,29 +6,42 @@ export const audioCtx = new AudioContext()
 export function getFile(audioContext, filepath) {
     return fetch(filepath)
     .then(sampleFile => {
-        console.log('from getFile function first: ',sampleFile)
         return sampleFile.arrayBuffer()})
     .then(arrayBuffer => {
-        console.log('from getFile function second: ',arrayBuffer)
         return audioContext.decodeAudioData(arrayBuffer)})
     .then(audioBuffer => {
-        console.log('from getFile function third: ',audioBuffer)
         return audioBuffer})
 }
 
-//take the file name as a string and call get file with audio Context to prepare sample
-export function setupSample(fileName) {
+//prepare sample for single kit piece
+export function setupSamplePiece(fileName) {
     const folder = './assets/samples/'
     let filePath = folder + fileName
     return getFile(audioCtx, filePath)
-    .then (sample => {
-        console.log('from setupSample function: ', sample)
-        return sample})
-
+    .then (sample => sample)
 }
-//Should be able to take the above function and alter it. 
-//Try using an array of filenames, loop over and load multiple samples.
-//Will need to play with this once we get one file working.
+
+//set up an entire kit of samples
+//samplesObj {kitpiece1: 'filename1', kitpiece2: 'filename2'} etc
+export function setupSampleKit(samplesObj) {
+    const folder = './assets/samples/'
+    let kitObj = {}
+    let names = []
+    let promises = []
+    for (const kitpiece in samplesObj) {
+        let filePath = folder + samplesObj[kitpiece]
+        names.push(kitpiece)
+        promises.push(getFile(audioCtx, filePath))
+    }
+    Promise.all(promises)
+    .then((buffers) => {
+        buffers.forEach((buffer, index) => {
+            kitObj[names[index]] = buffer
+        })
+        return kitObj
+    })
+    return kitObj
+}
 
 export function playSample(audioContext, audioBuffer) {
     const sampleSource = audioContext.createBufferSource()
