@@ -6,13 +6,10 @@ export const audioCtx = new AudioContext()
 export function getFile(audioContext, filepath) {
     return fetch(filepath)
     .then(sampleFile => {
-        console.log('from getFile function first: ',sampleFile)
         return sampleFile.arrayBuffer()})
     .then(arrayBuffer => {
-        console.log('from getFile function second: ',arrayBuffer)
         return audioContext.decodeAudioData(arrayBuffer)})
     .then(audioBuffer => {
-        console.log('from getFile function third: ',audioBuffer)
         return audioBuffer})
 }
 
@@ -21,30 +18,30 @@ export function setupSamplePiece(fileName) {
     const folder = './assets/samples/'
     let filePath = folder + fileName
     return getFile(audioCtx, filePath)
-    .then (sample => {
-        console.log('from setupSample function: ', sample)
-        return sample})
+    .then (sample => sample)
 }
 
 //set up an entire kit of samples
 //samplesObj {kitpiece1: 'filename1', kitpiece2: 'filename2'} etc
 export function setupSampleKit(samplesObj) {
-    console.log('setupSampleKit is being called')
     const folder = './assets/samples/'
     let kitObj = {}
+    let names = []
+    let promises = []
     for (const kitpiece in samplesObj) {
         let filePath = folder + samplesObj[kitpiece]
-        return getFile(audioCtx, filePath)
-        .then (sample => {
-            console.log('kitObj BEFORE piece being added: ', kitObj)
-            kitObj[kitpiece] = sample
-            return kitObj
-        })
+        names.push(kitpiece)
+        promises.push(getFile(audioCtx, filePath))
     }
-    console.log('setupSampleKit kitObj to be returned:', kitObj)
+    Promise.all(promises)
+    .then((buffers) => {
+        buffers.forEach((buffer, index) => {
+            kitObj[names[index]] = buffer
+        })
+        return kitObj
+    })
     return kitObj
 }
-
 
 export function playSample(audioContext, audioBuffer) {
     const sampleSource = audioContext.createBufferSource()

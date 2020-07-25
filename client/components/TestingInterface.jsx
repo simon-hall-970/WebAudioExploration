@@ -9,18 +9,13 @@ class TestInterface extends React.Component{
     basicKit = {
         highhat: 'closed_high_hat.wav',
         snare: 'snare.wav',
-        bass: 'bass_drum.wav'
+        bassdrum: 'bass_drum.wav'
     }
     
     loadKit = (evt) => {
         let kitName = this[evt.target.value]
-        console.log(kitName)
-        return audio.setupSampleKit(kitName)
-        .then(kit => {
-            console.log('kit being dispatched to action: ',kit)
-            this.props.dispatch(newKit(kit))
-            return kit
-        })
+        let kitObj = audio.setupSampleKit(kitName)
+        this.props.dispatch(newKit(kitObj))
     }
 
     loadSample = (evt) => {
