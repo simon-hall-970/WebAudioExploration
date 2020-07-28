@@ -38,33 +38,39 @@ class TestInterface extends React.Component{
     render(){
         return (
             <>
+                <div className = 'container'> Load full kit
                 <div>
-                    <button onClick={this.loadKit} value='basicKit'>Load Basic Kit</button>
+                    <button className = 'btn' onClick={this.loadKit} value='basicKit'>Load Basic Kit</button>
                 </div>
+                </div>
+                <div className = 'container'>Load sample
+                <div>
+                    <button className = 'btn load' onClick={this.loadSample} value='snare.wav'>snare</button>
+                    <button className = 'btn play' onClick={this.play} value="snare" >Play</button>
+                </div></div>
 
+                <div className = 'container'>Load sample
                 <div>
-                    <button onClick={this.loadSample} value='snare.wav'>snare</button>
-                    <button onClick={this.play} value="snare" >Play</button>
-                </div>
+                    <button className = 'btn load' onClick={this.loadSample} value='bass_drum.wav'>bassdrum</button>
+                    <button className = 'btn play' onClick={this.play} value="bassdrum">Play</button>
+                </div></div>
 
+                <div className = 'container'>Load sample
                 <div>
-                    <button onClick={this.loadSample} value='bass_drum.wav'>bassdrum</button>
-                    <button onClick={this.play} value="bassdrum">Play</button>
-                </div>
+                    <button className = 'btn load' onClick={this.loadSample} value='closed_high_hat.wav'>highhat</button>
+                    <button className = 'btn play' onClick={this.play} value="highhat">Play</button>
+                </div></div>
 
+                <div className = 'container'>Load sample
                 <div>
-                    <button onClick={this.loadSample} value='closed_high_hat.wav'>highhat</button>
-                    <button onClick={this.play} value="highhat">Play</button>
-                </div>
-
+                    <button className = 'btn load' onClick={this.loadSample} value='ride_cymbal.wav'>ride</button>
+                    <button className = 'btn play' onClick={this.play} value="ride">Play</button>
+                </div></div>
+                <div className = 'container'>Load sample
                 <div>
-                    <button onClick={this.loadSample} value='ride_cymbal.wav'>ride</button>
-                    <button onClick={this.play} value="ride">Play</button>
-                </div>
-                <div>
-                    <button onClick={this.loadSample} value='crash_cymbal.wav'>crash</button>
-                    <button onClick={this.play} value="crash">Play</button>
-                </div>
+                    <button className = 'btn load' onClick={this.loadSample} value='crash_cymbal.wav'>crash</button>
+                    <button className = 'btn play' onClick={this.play} value="crash">Play</button>
+                </div></div>
             </>
         )
     }
