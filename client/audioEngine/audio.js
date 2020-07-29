@@ -51,5 +51,46 @@ export function playSample(audioContext, audioBuffer) {
     return sampleSource
 }
 
+/*SCHEDULER*/
 
+/* Timing configuration */
+const lookAhead = 25.0 //milliseconds
+const scheduleAheadtime = 0.1 //seconds
+
+/* Initialize timing variables */
+let currentNote = 0 
+let nextNoteTime = 0.0 
+
+//function that tracks note count and time of next note
+function nextNote(tempo, division, beatVal, measures) {
+    const secondsPerBeat = 60.0 / tempo 
+    const secondsPerDivision = secondsPerBeat / (division / beatVal)
+    const totalNotes = measures * division
+
+    nextNoteTime += secondsPerDivision //Add division length to current note time
+    currentNote++ //Advance current Note
+    if (currentNote === totalNotes) {
+        currentNote = 0
+    }
+}
+
+const notesInQueue = []
+
+function scheduleNotes(beatNumber, time, tracks) {
+    notesInQueue.push({note: beatNumber, time: time})
+    tracks.forEach(track => {
+        let buffer;
+        if (track[currentNote].checked) {
+            playSample(audioCtx, buffer)
+        }
+    })
+}
+
+export function noteScheduler(tempo, division, beatVal, measures, tracks) {
+    while(nextNoteTime < (audioCtx.currentTime + scheduleAheadtime)) {
+        scheduleNotes(currentNote, nextNoteTime, tracks)
+        nextNote(tempo, division, beatVal, measures)
+    }
+    timerId = setTimehout(noteScheduler, lookAhead)
+}
 

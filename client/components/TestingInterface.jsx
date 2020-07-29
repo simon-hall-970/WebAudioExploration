@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import * as audio from '../audioEngine/audio.js'
 import { addPiece, newKit } from '../actions/drumkit.js'
 import TempoCtrl from './TempoCtrl.jsx'
+import * as config from '../audioEngine/config.js'
 
 
 class TestInterface extends React.Component{
@@ -31,6 +32,7 @@ class TestInterface extends React.Component{
     }
 
     play = (evt) => {
+        config.showStoreMethods()
         let context = audio.audioCtx
         let kitPiece = evt.target.value
         let buffer = this.props.kit[kitPiece]
