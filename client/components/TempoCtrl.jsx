@@ -18,8 +18,7 @@ class TempoController extends React.Component {
                     max="180" 
                     value={this.props.tempo} 
                     step="1"
-                    onChange={this.changeTempo} />
-                
+                    onChange={this.changeTempo} />              
             </>
         )
     }
