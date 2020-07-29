@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import * as audio from '../audioEngine/audio.js'
 import { addPiece, newKit } from '../actions/drumkit.js'
+import TempoCtrl from './TempoCtrl.jsx'
 
 
 class TestInterface extends React.Component{
@@ -38,7 +39,10 @@ class TestInterface extends React.Component{
     render(){
 
       return (
-          <> 
+          <>    
+                <div className = 'container'>
+                    <TempoCtrl />
+                </div>
                 <div className = 'container'> Load multiple samples (Basic Kit = HH, Snare, Kick)
                     <div className = 'btn_container'>
                         <button className = 'btn' onClick={this.loadKit} value='basicKit'>Load Basic Kit</button>
