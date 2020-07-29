@@ -11,6 +11,7 @@ div .container {
   padding: 5px;
 }
 
+/* button */
 .btn_container {
   position: relative;
 }
@@ -54,3 +55,16 @@ div .container {
   top: 1px;
 }
 
+/*TEMPO*/
+
+.tempo {
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#bpmVal {
+  display: inline-block;
+  font-size: 17px;
+  text-align: right;
+  width: 40px;
+}
