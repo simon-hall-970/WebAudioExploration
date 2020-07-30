@@ -54,6 +54,7 @@ class NoteSelect extends React.Component {
         this.setState({
             velocity: vel           
         })
+ 
     }
 
     mouseUp = (evt) => {

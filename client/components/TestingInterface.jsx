@@ -1,9 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as audio from '../audioEngine/audio'
 import { addPiece, newKit } from '../actions/drumkit'
+
+import * as audio from '../audioEngine/audio'
+
 import TempoCtrl from './MasterControls/TempoCtrl'
 import TrackContainer from './Track/TrackContainer'
+import AddTrack from './MasterControls/AddTrack'
 
 
 class TestInterface extends React.Component{
@@ -38,8 +41,9 @@ class TestInterface extends React.Component{
         let buffer = this.props.kit[kitPiece]
         audio.playSample(context, buffer)
     }
-    render(){
 
+    render(){
+        let track = 1
       return (
           <>    
                 <div className = 'container'>
@@ -51,7 +55,7 @@ class TestInterface extends React.Component{
                     </div>
                 </div>
 
-                <TrackContainer />
+                <TrackContainer Key={track} track = {track}/>
 
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
@@ -87,6 +91,7 @@ class TestInterface extends React.Component{
                         <button className = 'btn play' onClick={this.play} value="crash">Play</button>
                     </div>
                 </div>
+                <AddTrack/>
             </>
         )
     }
