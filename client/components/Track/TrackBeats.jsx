@@ -13,18 +13,25 @@ class TrackNotes extends React.Component {
 
     measuresArr = () => {
         const track = this.props.trackNumber
-        let noteCount = 0
+        let firstNote = 1
+
         return(
-            this.props.measures.map((measure, index) => {       
+            this.props.measures.map((measure, index) => {     
                 let notesThisMeasure = (measure.subdivision / measure.beatValue) * measure.beats
-                noteCount =+ notesThisMeasure
-                return (<TrackMeasure key={track,index} measureNumber={index} trackNumber={track} noteCount={noteCount - notesThisMeasure}/>)
+                firstNote += notesThisMeasure
+                
+                return (<TrackMeasure 
+                    key={track,index} 
+                    measureNumber={index} 
+                    trackNumber={track} 
+                    firstNote={firstNote - notesThisMeasure}
+                    notesThisMeasure={notesThisMeasure}/>)
             })
         )
     }
 
     render() {
-        console.log('TrackNotes this.Measures = ',this.props.measures)
+    
         return (
             <>
                 {this.measuresArr()}
