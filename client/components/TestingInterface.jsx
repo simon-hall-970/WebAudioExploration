@@ -1,17 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as audio from '../audioEngine/audio.js'
-import { addPiece, newKit } from '../actions/drumkit.js'
-import TempoCtrl from './TempoCtrl.jsx'
-import * as config from '../audioEngine/config.js'
+import * as audio from '../audioEngine/audio'
+import { addPiece, newKit } from '../actions/drumkit'
+import TempoCtrl from './MasterControls/TempoCtrl'
+import * as config from '../audioEngine/config'
+import TrackMeasure from './Track/Measures'
 
 
 class TestInterface extends React.Component{
     
     basicKit = {
-        highhat: 'closed_high_hat.wav',
+        open_hh: 'hh_op.wav',
+        closed_hh: 'hh_cl.wav',
         snare: 'snare.wav',
-        bassdrum: 'bass_drum.wav'
+        KickDrum: 'bass_drum.wav'
     }
     
     loadKit = (evt) => {
@@ -32,7 +34,6 @@ class TestInterface extends React.Component{
     }
 
     play = (evt) => {
-        config.showStoreMethods()
         let context = audio.audioCtx
         let kitPiece = evt.target.value
         let buffer = this.props.kit[kitPiece]
@@ -56,19 +57,27 @@ class TestInterface extends React.Component{
                         <button className = 'btn load' onClick={this.loadSample} value='snare.wav'>snare</button>
                         <button className = 'btn play' onClick={this.play} value="snare" >Play</button>
                     </div>
+                    <TrackMeasure />
                 </div>
 
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
-                        <button className = 'btn load' onClick={this.loadSample} value='bass_drum.wav'>bassdrum</button>
-                        <button className = 'btn play' onClick={this.play} value="bassdrum">Play</button>
+                        <button className = 'btn load' onClick={this.loadSample} value='KickDrum.wav'>Kick</button>
+                        <button className = 'btn play' onClick={this.play} value="Kick">Play</button>
                     </div>
                 </div>
 
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
-                        <button className = 'btn load' onClick={this.loadSample} value='closed_high_hat.wav'>highhat</button>
-                        <button className = 'btn play' onClick={this.play} value="highhat">Play</button>
+                        <button className = 'btn load' onClick={this.loadSample} value='hh_cl.wav'>closed_hh</button>
+                        <button className = 'btn play' onClick={this.play} value="closed_hh">Play</button>
+                    </div>
+                </div>
+
+                <div className = 'container'>Load sample
+                    <div className = 'btn_container'>
+                        <button className = 'btn load' onClick={this.loadSample} value='hh_op.wav'>open_hh</button>
+                        <button className = 'btn play' onClick={this.play} value="open_hh">Play</button>
                     </div>
                 </div>
 
