@@ -41,7 +41,7 @@ class NoteSelect extends React.Component {
     }
 
     velocity = (evt) => {
-        console.log(evt)
+
         let initialPos = this.state.startPosY
         let velChange = initialPos - evt.y
         let startVel = this.state.startVel

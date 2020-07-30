@@ -10,15 +10,15 @@ class TrackMeasure extends React.Component {
     
     n = this.props.measureNumber
     measure = this.props.measures[this.n]
-    notesPerMeasure = this.measure.subdivision / this.measure.beatValue * this.measure.beats
+    notesThisMeasure = this.props.notesThisMeasure
 
 
     render() {
         let notes = []
-        for (let note=0; note<this.notesPerMeasure; note++) {
+        for (let note=0; note<this.notesThisMeasure; note++) {
             notes.push(<NoteSelect 
-                key={this.notesPerMeasure*this.n + note+1} //this only works when all measures are the same length
-                note = {this.notesPerMeasure*this.n + note+1}
+                key={this.props.key,note} //this only works when all measures are the same length
+                note = {this.props.firstNote + note}
                 track = {this.props.trackNumber}
                 />)
         }
