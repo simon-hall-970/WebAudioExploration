@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import * as audio from '../audioEngine/audio'
 import { addPiece, newKit } from '../actions/drumkit'
 import TempoCtrl from './MasterControls/TempoCtrl'
-import * as config from '../audioEngine/config'
-import TrackMeasure from './Track/Measures'
+import TrackBeats from './Track/TrackBeats'
 
 
 class TestInterface extends React.Component{
@@ -57,7 +56,7 @@ class TestInterface extends React.Component{
                         <button className = 'btn load' onClick={this.loadSample} value='snare.wav'>snare</button>
                         <button className = 'btn play' onClick={this.play} value="snare" >Play</button>
                     </div>
-                    <TrackMeasure />
+                    <TrackBeats trackNumber = {1}/>
                 </div>
 
                 <div className = 'container'>Load sample

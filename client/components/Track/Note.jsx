@@ -1,12 +1,12 @@
 import React from 'react'
-import BeatStyle from '../styledComponents/BeatStyle'
+import NoteStyle from '../styledComponents/BeatStyle'
 
-/*Beat selector will need to control: 
-    -true false state of each beat (whether it should be scheduled to be played or not)
-    -volume / velocity of each beat
+/*Note selector will need to control: 
+    -true false state of each Note (whether it should be scheduled to be played or not)
+    -volume / velocity of each Note
     -length? */
 
-class BeatSelect extends React.Component {
+class NoteSelect extends React.Component {
 
     state ={
         checked: false,
@@ -66,14 +66,16 @@ class BeatSelect extends React.Component {
     }
     render(){
         return(
-            <BeatStyle 
+            <NoteStyle 
                 onMouseDown = {this.mouseDown}
                 onContextMenu = {e => e.preventDefault()}
                 velocity = {this.state.velocity}
                 checked = {this.state.checked}
-            />
+            > {this.state.checked ? this.state.velocity : ''}
+            </NoteStyle>
+
         )
     }
 }
 
-export default BeatSelect
+export default NoteSelect

@@ -1,15 +1,15 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-const BeatStyle = styled.div`
+const NoteStyle = styled.div`
     position: relative;
     display: inline-block;
-    left: 50%;
-    translate: -50%;
+    /* left: 50%;
+    translate: -50%; */
     margin: 2px;
     height: 100px;
     width: 100px;
-    background-color: green;
+    background-color: rgb(200,200,200);
     text-align: center;
     line-height: 100px;
     font-size: 3em;
@@ -22,4 +22,4 @@ const BeatStyle = styled.div`
     `}
 `
 
-export default BeatStyle
+export default NoteStyle
