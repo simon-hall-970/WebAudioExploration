@@ -14,7 +14,7 @@ const NoteStyle = styled.div`
     line-height: 100px;
     font-size: 3em;
     font-weight: 900;
-    color: white;
+    color: rgb(215,215,215);
     ${({ checked }) => 
     checked && css`
     color: rgb(73, 0, 34);
