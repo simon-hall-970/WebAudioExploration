@@ -8,7 +8,7 @@ class TrackContainer extends React.Component {
         return (
             <div className = 'container'>Load sample
                 <TrackControls />
-                <TrackBeats trackNumber = {1}/>
+                <TrackBeats track = {1}/>
             </div>
         )
     }

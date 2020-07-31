@@ -12,7 +12,7 @@ import TrackMeasure from './Measures'
 class TrackNotes extends React.Component {
 
     measuresArr = () => {
-        const track = this.props.trackNumber
+        const track = this.props.track
         let firstNote = 1
 
         return(
@@ -23,7 +23,7 @@ class TrackNotes extends React.Component {
                 return (<TrackMeasure 
                     key={track,index} 
                     measureNumber={index} 
-                    trackNumber={track} 
+                    track={track} 
                     firstNote={firstNote - notesThisMeasure}
                     notesThisMeasure={notesThisMeasure}/>)
             })

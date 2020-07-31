@@ -1,5 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import NoteStyle from '../styledComponents/BeatStyle'
+import { updateNote } from '../../actions/noteControl'
 
 /*Note selector will need to control: 
     -true false state of each Note (whether it should be scheduled to be played or not)
@@ -21,9 +23,10 @@ class NoteSelect extends React.Component {
         let checkedState = this.state.checked
 
         if (e.button === 0) {
+            
             this.setState({
                 checked: !checkedState
-            })
+            })          
         }
         if (e.button === 2 && checkedState) {
             this.setState({
@@ -41,7 +44,6 @@ class NoteSelect extends React.Component {
     }
 
     velocity = (evt) => {
-
         let initialPos = this.state.startPosY
         let velChange = initialPos - evt.y
         let startVel = this.state.startVel
@@ -58,8 +60,13 @@ class NoteSelect extends React.Component {
     }
 
     mouseUp = (evt) => {
+        let track = this.props.track
+        let note = this.props.note
+        let velocity = this.state.velocity
+        let checked = this.state.checkedState
         window.removeEventListener("mousemove", this.velocity)
         if (evt.button === 2) {
+            this.props.dispatch(updateNote(track, note, checked, velocity))
             this.setState({
                 rightBtnDown: false,
             })
@@ -79,4 +86,9 @@ class NoteSelect extends React.Component {
     }
 }
 
-export default NoteSelect
+function mapStateToProps(reduxState){
+    return {
+        notes: reduxState.noteSequencer
+    }
+}
+export default connect(mapStateToProps)(NoteSelect)
