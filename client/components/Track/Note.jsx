@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NoteStyle from '../styledComponents/BeatStyle'
-import { updateNote, toggleNote } from '../../actions/noteControl'
+import { updateNoteVelocity, toggleNote } from '../../actions/noteControl'
 
 /*Note selector will need to control: 
     -true false state of each Note (whether it should be scheduled to be played or not)
@@ -56,7 +56,7 @@ class NoteSelect extends React.Component {
         let vel = finalVel()
         this.setState({
             velocity: vel           
-        }, () => {this.props.dispatch(updateNote(this.props.track, this.props.note, this.state.velocity))}
+        }, () => {this.props.dispatch(updateNoteVelocity(this.props.track, this.props.note, this.state.velocity))}
         )
  
     }

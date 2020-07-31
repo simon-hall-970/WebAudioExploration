@@ -3,7 +3,6 @@ export const ADD_NOTES_TRACK = 'ADD_NOTES_TRACK'
 export const TOGGLE_NOTE = 'TOGGLE_NOTE'
 
 export const updateNoteVelocity = (trackId, note, velocity) => {
-    console.log('updateNote action being called', trackId, note, checked, velocity)
     return {
         type: UPDATE_NOTE_VELOCITY,
         trackId,

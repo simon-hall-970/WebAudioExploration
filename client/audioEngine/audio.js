@@ -81,7 +81,7 @@ function scheduleNotes(currentNote, time, noteSequencer, kit) {
         let buffer = kit[track];
         console.log(noteSequencer[track][currentNote])
         if (noteSequencer[track][currentNote].checked) {
-            playSample(audioCtx, buffer)
+            playSample(buffer, audioCtx)
         }
     }
 }

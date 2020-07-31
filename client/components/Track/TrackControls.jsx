@@ -23,7 +23,6 @@ class TrackControls extends React.Component {
     }
 
     play = () => {
-        console.log(this.props.kit)
         let buffer = this.props.kit[this.state.track]
         playSample(buffer)
     }
@@ -33,13 +32,13 @@ class TrackControls extends React.Component {
         let beatVal = this.props.measure[0].beatValue
         let notes = this.props.notes
         let noteCount = this.props.notes.track1[this.props.notes.track1.length-1].note
-        console.log(this.props.tempo, division, beatVal, notes, this.props.kit, noteCount )
+    
         noteScheduler(this.props.tempo, division, beatVal, notes, this.props.kit, noteCount )
 
     }
 
     render() {
-        console.log(this.state.play)
+
         return(
                 <div className = 'btn_container'>
                     <button className = 'btn load' onClick={this.loadSample} value='snare.wav'>snare</button>
