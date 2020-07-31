@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NoteStyle from '../styledComponents/BeatStyle'
-import { updateNote } from '../../actions/noteControl'
+import { updateNote, toggleNote } from '../../actions/noteControl'
 
 /*Note selector will need to control: 
     -true false state of each Note (whether it should be scheduled to be played or not)
@@ -26,7 +26,8 @@ class NoteSelect extends React.Component {
             
             this.setState({
                 checked: !checkedState
-            })          
+            }, () => {this.props.dispatch(toggleNote(this.props.track, this.props.note, this.state.checked))}
+            )          
         }
         if (e.button === 2 && checkedState) {
             this.setState({
@@ -55,18 +56,18 @@ class NoteSelect extends React.Component {
         let vel = finalVel()
         this.setState({
             velocity: vel           
-        })
+        }, () => {this.props.dispatch(updateNote(this.props.track, this.props.note, this.state.velocity))}
+        )
  
     }
 
     mouseUp = (evt) => {
-        let track = this.props.track
-        let note = this.props.note
-        let velocity = this.state.velocity
-        let checked = this.state.checkedState
+        // let track = this.props.track
+        // let note = this.props.note
+        // let velocity = this.state.velocity
+        // let checked = this.state.checked
         window.removeEventListener("mousemove", this.velocity)
         if (evt.button === 2) {
-            this.props.dispatch(updateNote(track, note, checked, velocity))
             this.setState({
                 rightBtnDown: false,
             })

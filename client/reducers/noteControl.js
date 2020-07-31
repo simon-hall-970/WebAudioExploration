@@ -1,7 +1,6 @@
-import { UPDATE_NOTE, ADD_NOTES_TRACK } from '../actions/noteControl'
+import { UPDATE_NOTE_VELOCITY, ADD_NOTES_TRACK, TOGGLE_NOTE } from '../actions/noteControl'
 
-const defaultState = {
-    track1: [{note:1, checked:false, volume:0.5}]}
+const defaultState = {track1:[]}
 
 export default function noteSequencer (state=defaultState, action) {
     let track = `track${action.trackId}`
@@ -11,15 +10,31 @@ export default function noteSequencer (state=defaultState, action) {
         case ADD_NOTES_TRACK:
             return {
                 ...state,
-                [track]: action.beatsArr  
+                [track]: [
+                    ...state[track], 
+                    ...action.beatsArr]  
             }
-
-        case UPDATE_NOTE:
-            let newTrack = state[track].map((item, ) => {
+        
+        case TOGGLE_NOTE:
+            let toggledTrack = state[track].map((item) => {
                 if(item.note==action.note) {
                     return {
                         ...item,
-                        checked: action.checked,
+                        checked: action.checked
+                    }
+                }
+                return item
+            })
+            return {
+                ...state,
+                [track]: toggledTrack
+            }
+
+        case UPDATE_NOTE_VELOCITY:
+            let velTrack = state[track].map((item) => {
+                if(item.note==action.note) {
+                    return {
+                        ...item,
                         velocity: action.velocity
                     }
                 }
@@ -27,10 +42,9 @@ export default function noteSequencer (state=defaultState, action) {
             })
             return {
                 ...state,
-                [track]: newTrack
+                [track]: velTrack
             }
-
-                
+      
         default:
             return state
     }

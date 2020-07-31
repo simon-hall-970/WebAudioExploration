@@ -43,7 +43,7 @@ export function setupSampleKit(samplesObj) {
     return kitObj
 }
 
-export function playSample(audioContext, audioBuffer) {
+export function playSample(audioBuffer, audioContext = audioCtx) {
     const sampleSource = audioContext.createBufferSource()
     sampleSource.buffer = audioBuffer
     sampleSource.connect(audioContext.destination)
@@ -79,17 +79,20 @@ function scheduleNotes(currentNote, time, noteSequencer, kit) {
     notesInQueue.push({note: currentNote, time: time})
     for(const track in noteSequencer) {
         let buffer = kit[track];
-        if (noteSequencer[track[currentNote]].checked) {
+        console.log(noteSequencer[track][currentNote])
+        if (noteSequencer[track][currentNote].checked) {
             playSample(audioCtx, buffer)
         }
     }
 }
 
-export function noteScheduler(tempo, division, beatVal, tracks, kit, noteCount) {
+let timerID
+export function noteScheduler(tempo, division, beatVal, noteSequencer, kit, noteCount) {
     while(nextNoteTime < (audioCtx.currentTime + scheduleAheadtime)) {
-        scheduleNotes(currentNote, nextNoteTime, tracks, kit)
+        console.log('notescheduler passing to schedulenotes',currentNote, nextNoteTime, noteSequencer, kit)
+        scheduleNotes(currentNote, nextNoteTime, noteSequencer, kit)
         nextNote(tempo, division, beatVal, noteCount)
     }
-    timerId = setTimeout(noteScheduler, lookAhead)
+    timerID = setTimeout(noteScheduler, lookAhead)
 }
 

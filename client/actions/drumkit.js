@@ -8,10 +8,10 @@ export const newKit = (kitObj) => {
     }
 }
 
-export const addPiece = (name, buffer) => {
+export const addPiece = (track, buffer) => {
     return {
         type: ADD_KIT_PIECE,
-        name,
+        track,
         buffer,
     }
 }

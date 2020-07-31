@@ -1,16 +1,25 @@
-export const UPDATE_NOTE = 'UPDATE_NOTE'
+export const UPDATE_NOTE_VELOCITY = 'UPDATE_NOTE_VELOCITY'
 export const ADD_NOTES_TRACK = 'ADD_NOTES_TRACK'
+export const TOGGLE_NOTE = 'TOGGLE_NOTE'
 
-export const updateNote = (trackId, note, checked, velocity) => {
-    console.log('updateNote action being called')
+export const updateNoteVelocity = (trackId, note, velocity) => {
+    console.log('updateNote action being called', trackId, note, checked, velocity)
     return {
-        type: UPDATE_NOTE,
+        type: UPDATE_NOTE_VELOCITY,
         trackId,
         note,
-        checked,
         velocity
     }
 } 
+
+export const toggleNote = (trackId, note, checked) => {
+    return {
+        type: TOGGLE_NOTE,
+        trackId,
+        note,
+        checked
+    }
+}
 
 export const addNotes = (trackId, beatsArr) => {
     return {
