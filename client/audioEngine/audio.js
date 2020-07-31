@@ -62,35 +62,34 @@ let currentNote = 0
 let nextNoteTime = 0.0 
 
 //function that tracks note count and time of next note
-function nextNote(tempo, division, beatVal, measures) {
+function nextNote(tempo, division, beatVal, noteCount) {
     const secondsPerBeat = 60.0 / tempo 
     const secondsPerDivision = secondsPerBeat / (division / beatVal)
-    const totalNotes = measures * division
 
     nextNoteTime += secondsPerDivision //Add division length to current note time
     currentNote++ //Advance current Note
-    if (currentNote === totalNotes) {
+    if (currentNote === noteCount) {
         currentNote = 0
     }
 }
 
 const notesInQueue = []
-
-function scheduleNotes(beatNumber, time, tracks) {
-    notesInQueue.push({note: beatNumber, time: time})
-    tracks.forEach(track => {
-        let buffer;
-        if (track[currentNote].checked) {
+//need to get arguments into 
+function scheduleNotes(currentNote, time, noteSequencer, kit) {
+    notesInQueue.push({note: currentNote, time: time})
+    for(const track in noteSequencer) {
+        let buffer = kit[track];
+        if (noteSequencer[track[currentNote]].checked) {
             playSample(audioCtx, buffer)
         }
-    })
+    }
 }
 
-export function noteScheduler(tempo, division, beatVal, measures, tracks) {
+export function noteScheduler(tempo, division, beatVal, tracks, kit, noteCount) {
     while(nextNoteTime < (audioCtx.currentTime + scheduleAheadtime)) {
-        scheduleNotes(currentNote, nextNoteTime, tracks)
-        nextNote(tempo, division, beatVal, measures)
+        scheduleNotes(currentNote, nextNoteTime, tracks, kit)
+        nextNote(tempo, division, beatVal, noteCount)
     }
-    timerId = setTimehout(noteScheduler, lookAhead)
+    timerId = setTimeout(noteScheduler, lookAhead)
 }
 
