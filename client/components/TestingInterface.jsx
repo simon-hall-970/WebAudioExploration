@@ -15,7 +15,7 @@ class TestInterface extends React.Component{
         open_hh: 'hh_op.wav',
         closed_hh: 'hh_cl.wav',
         snare: 'snare.wav',
-        KickDrum: 'bass_drum.wav'
+        KickDrum: 'KickDrum.wav'
     }
     
     loadKit = (evt) => {
@@ -36,10 +36,9 @@ class TestInterface extends React.Component{
     }
 
     play = (evt) => {
-        let context = audio.audioCtx
         let kitPiece = evt.target.value
         let buffer = this.props.kit[kitPiece]
-        audio.playSample(context, buffer)
+        audio.playSample(buffer)
     }
 
     render(){
@@ -60,35 +59,35 @@ class TestInterface extends React.Component{
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
                         <button className = 'btn load' onClick={this.loadSample} value='KickDrum.wav'>Kick</button>
-                        <button className = 'btn play' onClick={this.play} value="Kick">Play</button>
+                        <button className = 'btn play' onClick={this.play} value="Kick">Test</button>
                     </div>
                 </div>
 
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
                         <button className = 'btn load' onClick={this.loadSample} value='hh_cl.wav'>closed_hh</button>
-                        <button className = 'btn play' onClick={this.play} value="closed_hh">Play</button>
+                        <button className = 'btn play' onClick={this.play} value="closed_hh">Test</button>
                     </div>
                 </div>
 
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
                         <button className = 'btn load' onClick={this.loadSample} value='hh_op.wav'>open_hh</button>
-                        <button className = 'btn play' onClick={this.play} value="open_hh">Play</button>
+                        <button className = 'btn play' onClick={this.play} value="open_hh">Test</button>
                     </div>
                 </div>
 
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
                         <button className = 'btn load' onClick={this.loadSample} value='ride_cymbal.wav'>ride</button>
-                        <button className = 'btn play' onClick={this.play} value="ride">Play</button>
+                        <button className = 'btn play' onClick={this.play} value="ride">Test</button>
                     </div>
                 </div>
                 
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
                         <button className = 'btn load' onClick={this.loadSample} value='crash_cymbal.wav'>crash</button>
-                        <button className = 'btn play' onClick={this.play} value="crash">Play</button>
+                        <button className = 'btn play' onClick={this.play} value="crash">Test</button>
                     </div>
                 </div>
                 <AddTrack/>

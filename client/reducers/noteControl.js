@@ -1,16 +1,22 @@
-import { TOGGLE_NOTE } from '../actions/noteControl'
+import { UPDATE_NOTE_VELOCITY, ADD_NOTES_TRACK, TOGGLE_NOTE } from '../actions/noteControl'
 
-const defaultState = {
-    track1: [{note:1, track:1, checked:false, volume:0.5}]}
+const defaultState = {track1:[]}
 
 export default function noteSequencer (state=defaultState, action) {
     let track = `track${action.trackId}`
 
     switch (action.type) {
 
+        case ADD_NOTES_TRACK:
+            return {
+                ...state,
+                [track]: [
+                    ...state[track], 
+                    ...action.beatsArr]  
+            }
+        
         case TOGGLE_NOTE:
-            
-            let newTrack = state[track].map((item, ) => {
+            let toggledTrack = state[track].map((item) => {
                 if(item.note==action.note) {
                     return {
                         ...item,
@@ -19,12 +25,26 @@ export default function noteSequencer (state=defaultState, action) {
                 }
                 return item
             })
-
             return {
                 ...state,
-                [track]: newTrack
+                [track]: toggledTrack
             }
-                
+
+        case UPDATE_NOTE_VELOCITY:
+            let velTrack = state[track].map((item) => {
+                if(item.note==action.note) {
+                    return {
+                        ...item,
+                        velocity: action.velocity
+                    }
+                }
+                return item
+            })
+            return {
+                ...state,
+                [track]: velTrack
+            }
+      
         default:
             return state
     }
