@@ -1,9 +1,13 @@
 import React from 'react'
 import TestInterface from './TestingInterface'
+import AudioContextWatcher from './AudioClock'
 
 const App = () => {
   return (
-    <TestInterface />
+    <>
+      <AudioContextWatcher />
+      <TestInterface />
+    </>
   )
 }
 
