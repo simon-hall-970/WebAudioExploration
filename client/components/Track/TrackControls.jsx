@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setupSamplePiece, playSample, noteScheduler } from '../../audioEngine/audio'
+import { audioCtx, setupSamplePiece, playSample, noteScheduler } from '../../audioEngine/audio'
 import { addPiece }  from '../../actions/drumkit'
 
 class TrackControls extends React.Component {
@@ -24,7 +24,13 @@ class TrackControls extends React.Component {
 
     play = () => {
         let buffer = this.props.kit[this.state.track]
-        playSample(buffer)
+        if(audioCtx.state === 'suspended') {
+            audioCtx.resume()
+            .then(playSample(buffer))
+        }
+        else {
+            playSample(buffer)
+        }
     }
 
     playPause = () => {
