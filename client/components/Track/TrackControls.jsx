@@ -37,9 +37,9 @@ class TrackControls extends React.Component {
     playPause = () => {
         let division = this.props.measure[0].subdivision
         let beatVal = this.props.measure[0].beatValue
-        let notes = this.props.notes
         let noteCount = this.props.notes.track1[this.props.notes.track1.length-1].note
-        setInterval(() => {noteScheduler(notes, this.props.kit.track1)}, 25)
+        const schedulerInterval = setInterval(() => {
+            noteScheduler(this.props.notes, this.props.kit.track1)}, 25)
     }
 
     render() {
