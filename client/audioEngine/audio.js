@@ -45,6 +45,7 @@ export function setupSampleKit(samplesObj) {
 
 //set up our play sample to accept time parameter for scheduling playback with default playback at current time.
 export function playSample(audioBuffer, time=audioCtx.currentTime) {
+    console.log(time)
     const sampleSource = audioCtx.createBufferSource()
     sampleSource.buffer = audioBuffer
     sampleSource.connect(audioCtx.destination)

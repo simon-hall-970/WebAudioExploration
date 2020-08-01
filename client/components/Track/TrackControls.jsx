@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { audioCtx, setupSamplePiece, playSample, noteScheduler } from '../../audioEngine/audio'
+import { audioCtx, setupSamplePiece, playSample } from '../../audioEngine/audio'
+import { noteScheduler } from '../../audioEngine/scheduler'
 import { addPiece }  from '../../actions/drumkit'
 
 class TrackControls extends React.Component {
@@ -38,9 +39,7 @@ class TrackControls extends React.Component {
         let beatVal = this.props.measure[0].beatValue
         let notes = this.props.notes
         let noteCount = this.props.notes.track1[this.props.notes.track1.length-1].note
-    
-        noteScheduler(this.props.tempo, division, beatVal, notes, this.props.kit, noteCount )
-
+        setInterval(() => {noteScheduler(notes, this.props.kit.track1)}, 25)
     }
 
     render() {
