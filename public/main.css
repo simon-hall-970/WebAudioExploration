@@ -5,6 +5,10 @@
   margin: 0;
   padding: 0;
 }
+.audio-state {
+  font-size: larger;
+  font-weight: 900;
+}
 
 div .container {
   height: auto;
