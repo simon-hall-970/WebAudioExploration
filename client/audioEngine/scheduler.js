@@ -1,5 +1,4 @@
 import { audioCtx, playSample } from './audio'
-import { TestScheduler } from 'jest'
 
 const lookahead = 25 //milliseconds
 const scheduleAheadTime = 0.1 //seconds
