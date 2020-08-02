@@ -7,12 +7,12 @@ const NoteStyle = styled.div`
     /* left: 50%;
     translate: -50%; */
     margin: 2px;
-    height: 90%;
-    width: height;
+    height: 60px;
+    width: 30px;
     background-color: rgb(200,200,200);
     text-align: center;
     line-height: 100px;
-    font-size: 2em;
+    font-size: 100%;
     font-weight: 900;
     color: rgb(215,215,215);
     ${({ checked }) => 
