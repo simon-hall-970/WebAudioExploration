@@ -35,6 +35,8 @@ class TrackControls extends React.Component {
         }
     }
 
+    schedulerInterval
+
     playPause = () => {
         let division = this.props.measure[0].subdivision
         let beatVal = this.props.measure[0].beatValue
@@ -45,7 +47,7 @@ class TrackControls extends React.Component {
                 isPlaying: false
             })
             audioCtx.suspend()
-            clearInterval(schedulerInterval)
+            clearInterval(this.schedulerInterval)
  
         }else {
             this.setState({
@@ -54,7 +56,7 @@ class TrackControls extends React.Component {
             if(audioCtx.state === 'suspended'){
                 audioCtx.resume()
             }
-            const schedulerInterval = setInterval(() => {
+            this.schedulerInterval = setInterval(() => {
             noteScheduler(this.props.notes, this.props.kit.track1)}, 25)
         }
 
