@@ -10,7 +10,8 @@ import AddTrack from './MasterControls/AddTrack'
 
 
 class TestInterface extends React.Component{
-    
+    //threw together a quick interface to provide an interface for debugging during development.
+    //will keep most of the code but it will likely live in different modules as the UI evolves.
     basicKit = {
         open_hh: 'hh_op.wav',
         closed_hh: 'hh_cl.wav',
