@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateTempo } from '../../actions/masterControls'
+import { updateTempo } from '../../actions/tempo'
 
 class TempoController extends React.Component {
 

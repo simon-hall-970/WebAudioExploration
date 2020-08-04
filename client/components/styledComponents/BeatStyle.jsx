@@ -11,7 +11,7 @@ const NoteStyle = styled.div`
     width: 30px;
     background-color: rgb(200,200,200);
     text-align: center;
-    line-height: 100px;
+    line-height: 60px;
     font-size: 100%;
     font-weight: 900;
     color: rgb(215,215,215);

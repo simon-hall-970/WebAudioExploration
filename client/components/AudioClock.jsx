@@ -1,6 +1,6 @@
 import React from 'react'
 import { audioCtx } from '../audioEngine/audio'
-
+//This is module is just for development purposes to view parameters of the audioContext in app
 class AudioContextWatcher extends React.Component {
     
     componentDidMount() {
