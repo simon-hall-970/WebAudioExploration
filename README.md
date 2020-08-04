@@ -1,4 +1,4 @@
-#Drum Machine
+# Drum Machine
 Building a drum machine using Web Audio API with React and Redux.
 
 ---
