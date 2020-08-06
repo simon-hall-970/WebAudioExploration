@@ -17,6 +17,9 @@ Use one button that calls an object with 'name: filepath' data for a kit. Loop o
 - Create a scheduling engine in js. This will need to use the WebAudio clock for sample accurate scheduling of sound events and a JavaScript clock for lookahead to changes on the fly.  See Chris Wilson's 2013 article [A Tale of Two Clocks](https://www.html5rocks.com/en/tutorials/audio/scheduling/#toc-usingsettimeout)
 - Using two bars of eighth notes in common time to start.
 
+#### 4. Add scheduling for multiple tracks
+
+
 #### 4. Add volume controls
 - Overall volume control at project level
 - Channel volume control at track level - for mixing

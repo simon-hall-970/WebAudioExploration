@@ -43,7 +43,7 @@ class TestInterface extends React.Component{
     }
 
     render(){
-        let track = 1
+        
       return (
           <>    
                 <div className = 'container'>
@@ -55,14 +55,9 @@ class TestInterface extends React.Component{
                     </div>
                 </div>
 
-                <TrackContainer Key={track} track = {track}/>
+                <TrackContainer Key={1} track = {1}/>
 
-                <div className = 'container'>Load sample
-                    <div className = 'btn_container'>
-                        <button className = 'btn load' onClick={this.loadSample} value='KickDrum.wav'>Kick</button>
-                        <button className = 'btn play' onClick={this.play} value="Kick">Test</button>
-                    </div>
-                </div>
+                <TrackContainer Key={2} track = {2} />
 
                 <div className = 'container'>Load sample
                     <div className = 'btn_container'>
