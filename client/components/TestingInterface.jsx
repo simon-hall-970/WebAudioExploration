@@ -57,35 +57,8 @@ class TestInterface extends React.Component{
 
                 <TrackContainer Key={1} track = {1}/>
 
-                <TrackContainer Key={2} track = {2} />
+                {/* <TrackContainer Key={2} track = {2} /> */}
 
-                <div className = 'container'>Load sample
-                    <div className = 'btn_container'>
-                        <button className = 'btn load' onClick={this.loadSample} value='hh_cl.wav'>closed_hh</button>
-                        <button className = 'btn play' onClick={this.play} value="closed_hh">Test</button>
-                    </div>
-                </div>
-
-                <div className = 'container'>Load sample
-                    <div className = 'btn_container'>
-                        <button className = 'btn load' onClick={this.loadSample} value='hh_op.wav'>open_hh</button>
-                        <button className = 'btn play' onClick={this.play} value="open_hh">Test</button>
-                    </div>
-                </div>
-
-                <div className = 'container'>Load sample
-                    <div className = 'btn_container'>
-                        <button className = 'btn load' onClick={this.loadSample} value='ride_cymbal.wav'>ride</button>
-                        <button className = 'btn play' onClick={this.play} value="ride">Test</button>
-                    </div>
-                </div>
-                
-                <div className = 'container'>Load sample
-                    <div className = 'btn_container'>
-                        <button className = 'btn load' onClick={this.loadSample} value='crash_cymbal.wav'>crash</button>
-                        <button className = 'btn play' onClick={this.play} value="crash">Test</button>
-                    </div>
-                </div>
                 <AddTrack/>
             </>
         )
@@ -99,3 +72,33 @@ function mapStateToProps(reduxState) {
 }
 
 export default connect(mapStateToProps)(TestInterface)
+
+/*
+    <div className = 'container'>Load sample
+        <div className = 'btn_container'>
+            <button className = 'btn load' onClick={this.loadSample} value='hh_cl.wav'>closed_hh</button>
+            <button className = 'btn play' onClick={this.play} value="closed_hh">Test</button>
+        </div>
+    </div>
+
+    <div className = 'container'>Load sample
+        <div className = 'btn_container'>
+            <button className = 'btn load' onClick={this.loadSample} value='hh_op.wav'>open_hh</button>
+            <button className = 'btn play' onClick={this.play} value="open_hh">Test</button>
+        </div>
+    </div>
+
+    <div className = 'container'>Load sample
+        <div className = 'btn_container'>
+            <button className = 'btn load' onClick={this.loadSample} value='ride_cymbal.wav'>ride</button>
+            <button className = 'btn play' onClick={this.play} value="ride">Test</button>
+        </div>
+    </div>
+    
+    <div className = 'container'>Load sample
+        <div className = 'btn_container'>
+            <button className = 'btn load' onClick={this.loadSample} value='crash_cymbal.wav'>crash</button>
+            <button className = 'btn play' onClick={this.play} value="crash">Test</button>
+        </div>
+    </div>
+*/

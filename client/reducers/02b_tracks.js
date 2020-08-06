@@ -1,6 +1,6 @@
 import {ADD_TRACK} from '../actions/tracks'
 
-/* Tracks state model example:
+/* Tracks state model example: This will be a combine reducer for tracks
 
 Tracks: [
     {
