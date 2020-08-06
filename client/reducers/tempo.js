@@ -1,4 +1,4 @@
-import {UPDATE_TEMPO} from '../actions/masterControls'
+import {UPDATE_TEMPO} from '../actions/tempo'
 
 const defaultState = 120
 
