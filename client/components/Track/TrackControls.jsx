@@ -23,7 +23,7 @@ class TrackControls extends React.Component {
             return sample
         })
     }
-
+    //play function plays sound source once to check the sound state.
     play = () => {
         let buffer = this.props.kit[this.state.track]
         if(audioCtx.state === 'suspended') {
@@ -34,7 +34,7 @@ class TrackControls extends React.Component {
             playSample(buffer)
         }
     }
-
+    //the following needs to move to master control use a solo and/or mute button for listening to individual tracks.
     schedulerInterval
 
     playPause = () => {
