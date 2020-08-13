@@ -8,11 +8,10 @@ class TrackControls extends React.Component {
 
     state = {
         play: true,
-        track: `track${this.props.track}`, //it's ok. props.track will not be updated so this is perfectly legit
+        track: `track${this.props.track}`, //props.track will not be updated so okay to be used in state
         isPlaying: false
     }
     
-
     loadSample = (evt) => {
         let fileName = evt.nativeEvent.target.value
         return setupSamplePiece(fileName)
@@ -23,6 +22,7 @@ class TrackControls extends React.Component {
             return sample
         })
     }
+
     //play function plays sound source once to check the sound state.
     play = () => {
         let buffer = this.props.kit[this.state.track]
@@ -38,28 +38,28 @@ class TrackControls extends React.Component {
     schedulerInterval
 
     playPause = () => {
-        let division = this.props.measure[0].subdivision
-        let beatVal = this.props.measure[0].beatValue
-        let noteCount = this.props.notes.track1[this.props.notes.track1.length-1].note
-        
         if(this.state.isPlaying == true){
             this.setState({
                 isPlaying: false
             })
             audioCtx.suspend()
             clearInterval(this.schedulerInterval)
- 
-        }else {
+        } 
+        else {
             this.setState({
                 isPlaying: true
             })
+
             if(audioCtx.state === 'suspended'){
                 audioCtx.resume()
             }
-            this.schedulerInterval = setInterval(() => {
-            noteScheduler(this.props.notes, this.props.kit.track1)}, 25)
-        }
 
+            this.schedulerInterval = setInterval(() => {
+                let bpm = this.props.tempo
+                let noteSequencer = this.props.notes
+                let buffer = this.props.kit[this.state.track]
+            noteScheduler(bpm, noteSequencer, buffer)}, 25)
+        }
     }
 
     render() {
@@ -81,7 +81,7 @@ function mapStateToProps(reduxState) {
         kit: reduxState.Kit,
         measure: reduxState.measures,
         notes: reduxState.noteSequencer,
-        tempo:reduxState.tempo
+        tempo: reduxState.tempo
     }
 }
 
