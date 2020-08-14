@@ -57,7 +57,7 @@ class TestInterface extends React.Component{
 
                 <TrackContainer Key={1} track = {1}/>
 
-                {/* <TrackContainer Key={2} track = {2} /> */}
+                <TrackContainer Key={2} track = {2} />
 
                 <AddTrack/>
             </>

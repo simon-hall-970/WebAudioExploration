@@ -1,6 +1,6 @@
 import { UPDATE_NOTE_VELOCITY, ADD_NOTES_TRACK, TOGGLE_NOTE } from '../actions/noteControl'
 
-const defaultState = {track1:[]}
+const defaultState = {}
 
 export default function noteSequencer (state=defaultState, action) {
     let track = `track${action.trackId}`
@@ -8,14 +8,24 @@ export default function noteSequencer (state=defaultState, action) {
     switch (action.type) {
 
         case ADD_NOTES_TRACK:
-            return {
-                ...state,
-                [track]: [
-                    ...state[track], 
-                    ...action.beatsArr]  
+            if(!state[track]) {console.log("first of",track, action.beatsArr)
+                return {
+                    ...state,
+                    [track]:[...action.beatsArr]
+                }
+            } else { console.log("next of", track, action.beatsArr)
+            console.log("existing state of", track, state)
+                return {
+                    ...state,
+                    [track]: [
+                        ...state[track], 
+                        ...action.beatsArr]  
+                }
             }
+
         
         case TOGGLE_NOTE:
+            console.log("Toggle_Note reducer running")
             let toggledTrack = state[track].map((item) => {
                 if(item.note==action.note) {
                     return {
