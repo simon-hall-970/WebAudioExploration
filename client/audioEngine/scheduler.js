@@ -1,13 +1,13 @@
 import { audioCtx, playSample } from './audio'
+import { scheduleAheadTime, totalNotes, subdivision, beatValue } from './config'
 
-const lookahead = 25 //milliseconds
-const scheduleAheadTime = 0.1 //seconds
 let currentNote = 0
 let nextNoteTime = audioCtx.currentTime
 
-function nextNote (bpm, subdivision, beatVal, totalNotes) {
-    //set length of note in seconds depending on bpm subdivision and beatVal
-    const secondsPerNote = 60 / bpm / (subdivision/beatVal)
+function nextNote (bpm) {
+    console.log(bpm, subdivision, beatValue)
+    //set length of note in seconds depending on bpm subdivision and beatValue
+    const secondsPerNote = (60 / bpm) / (subdivision/beatValue)
     nextNoteTime += secondsPerNote  //update timing of next note event based on length of this note event
 
     //increment current note and loop after last note.
@@ -18,15 +18,16 @@ function nextNote (bpm, subdivision, beatVal, totalNotes) {
 } 
 
 function scheduleNotes(noteSequencer, buffer, time) {
-    if(noteSequencer.track1[currentNote].checked === true ) {
+
+    if(noteSequencer[currentNote].checked === true ) {
         playSample(buffer, time)
     }
 }
 
-export function noteScheduler(noteSequencer, buffer) {
-    console.log('noteScheduler called', noteSequencer, audioCtx.currentTime)
+export function noteScheduler(bpm, noteSequencer, buffer) {
+
     while(nextNoteTime < audioCtx.currentTime + scheduleAheadTime) {
         scheduleNotes(noteSequencer, buffer, nextNoteTime)
-        nextNote(120, 8, 4, 16)
+        nextNote(bpm)
     }
 }

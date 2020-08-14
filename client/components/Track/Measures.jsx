@@ -27,7 +27,6 @@ class TrackMeasure extends React.Component {
                 velocity
             })
         }
-        console.log(this.track,  beatsArr)
         this.props.dispatch(addNotes(this.track, beatsArr))
     }
 
