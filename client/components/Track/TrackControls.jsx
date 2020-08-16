@@ -6,13 +6,16 @@ import { addPiece }  from '../../actions/drumkit'
 
 class TrackControls extends React.Component {
 
+    componentDidMount(){
+        audioCtx.suspend()
+    }
+
     state = {
         play: true,
-        track: `track${this.props.track}`, //it's ok. props.track will not be updated so this is perfectly legit
+        track: `track${this.props.track}`, //props.track will not be updated so okay to be used in state
         isPlaying: false
     }
     
-
     loadSample = (evt) => {
         let fileName = evt.nativeEvent.target.value
         return setupSamplePiece(fileName)
@@ -24,50 +27,54 @@ class TrackControls extends React.Component {
         })
     }
 
-    play = () => {
+    //play function plays sound source once to check the sound state.
+    test = () => {
         let buffer = this.props.kit[this.state.track]
         if(audioCtx.state === 'suspended') {
             audioCtx.resume()
             .then(playSample(buffer))
+            .then(audioCtx.suspend())
         }
         else {
             playSample(buffer)
         }
     }
-
+    //the following needs to move to master control use a solo and/or mute button for listening to individual tracks.
     schedulerInterval
 
     playPause = () => {
-        let division = this.props.measure[0].subdivision
-        let beatVal = this.props.measure[0].beatValue
-        let noteCount = this.props.notes.track1[this.props.notes.track1.length-1].note
-        
+
         if(this.state.isPlaying == true){
             this.setState({
                 isPlaying: false
             })
             audioCtx.suspend()
             clearInterval(this.schedulerInterval)
- 
-        }else {
+        } 
+        else {
             this.setState({
                 isPlaying: true
             })
+
             if(audioCtx.state === 'suspended'){
                 audioCtx.resume()
+                .then(() => this.schedulerInterval = setInterval(() => {
+                    //define variables each time the scheduler is called to allow on the fly changes
+                    let bpm = this.props.tempo
+                    let noteSequencer = this.props.notes[this.state.track]
+                    let buffer = this.props.kit[this.state.track]
+                    //call scheduler and pass update variables
+                    noteScheduler(bpm, noteSequencer, buffer)}, 25)
+                )
             }
-            this.schedulerInterval = setInterval(() => {
-            noteScheduler(this.props.notes, this.props.kit.track1)}, 25)
         }
-
     }
 
     render() {
-
         return(
                 <div className = 'btn_container'>
                     <button className = 'btn load' onClick={this.loadSample} value='snare.wav'>snare</button>
-                    <button className = 'btn play' onClick={this.play} value="snare" >Test</button>
+                    <button className = 'btn play' onClick={this.test} value="snare" >Test</button>
                     <button className = 'btn playPause' disabled={this.state.play} onClick={this.playPause}>
                     {this.state.isPlaying ? '‖' : '►'}
                     </button>
@@ -81,7 +88,7 @@ function mapStateToProps(reduxState) {
         kit: reduxState.Kit,
         measure: reduxState.measures,
         notes: reduxState.noteSequencer,
-        tempo:reduxState.tempo
+        tempo: reduxState.tempo
     }
 }
 
