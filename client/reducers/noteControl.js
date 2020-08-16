@@ -8,13 +8,12 @@ export default function noteSequencer (state=defaultState, action) {
     switch (action.type) {
 
         case ADD_NOTES_TRACK:
-            if(!state[track]) {console.log("first of",track, action.beatsArr)
+            if(!state[track]){
                 return {
                     ...state,
                     [track]:[...action.beatsArr]
                 }
-            } else { console.log("next of", track, action.beatsArr)
-            console.log("existing state of", track, state)
+            } else { 
                 return {
                     ...state,
                     [track]: [
