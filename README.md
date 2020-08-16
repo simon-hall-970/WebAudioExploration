@@ -18,7 +18,9 @@ Use one button that calls an object with 'name: filepath' data for a kit. Loop o
 - Using two bars of eighth notes in common time to start.
 
 #### 4. Add scheduling for multiple tracks
-
+- Add reducers to allow for multiple tracks.
+- Update play function to accommodate multiple tracks.
+- Revise shape of state to provide better data structure.
 
 #### 4. Add volume controls
 - Overall volume control at project level

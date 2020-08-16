@@ -6,10 +6,10 @@ export const scheduleAheadTime = 0.1 //seconds
 
 //Note information
 export const measures = 2 
-export const subdivision = 8 //eighth notes (semiquaver)
+export const subdivision = 8 //eighth notes (quaver)
 
 //Meter
 export const beatsPerMeasure = 4  //count per measure (top number in time signature)
-export const beatValue = 4  //note value that gets the count 4 = quarter note (quaver) (bottom number in time signature)
+export const beatValue = 4  //note value that gets the count 4 = quarter note (crotchet) (bottom number in time signature)
 
 export const totalNotes = (subdivision/beatValue) * beatsPerMeasure * measures

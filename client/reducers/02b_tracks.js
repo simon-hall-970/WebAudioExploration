@@ -1,53 +1,17 @@
 import {ADD_TRACK} from '../actions/tracks'
 
-/* Tracks state model example: This will be a combine reducer for tracks
-
-Tracks: [
+const defaultState = [
     {
-        TrackId: 1,
-        TrackName: Snare,
-        TrackSource: {Type: sample or synth, Buffer: AudioBuffer} //initially all will be samples but will add synths made from oscillators at a later stage
-        TrackVolume: 100, //This will be added at a later stage
-        TrackPan: 0, //Pan will be added at a later stage along with volume
-        Notes: [
-            {NoteId: 1,
-            Checked: true/false,
-            Volume: 100},
-
-            {NoteId: 2,
-            Checked: true/false,
-            Volume: 100},
-
-            {NoteId: 3,
-            Checked: true/false,
-            Volume: 100},
-        ]
-    },
-    {
-        TrackId: 2,
-        TrackName: Kick,
-        TrackSource: {Type: sample or synth, Buffer: AudioBuffer}
-        TrackVolume: 100,
-        TrackPan: 0,
-        Notes: [
-            {NoteId: 1,
-            Checked: true/false,
-            Volume: 100},
-
-            {NoteId: 2,
-            Checked: true/false,
-            Volume: 100},
-
-            {NoteId: 3,
-            Checked: true/false,
-            Volume: 100},
-        ]
+        Id: 1,
+        Name: 'Track 1',
+        Source: {}, //initially all will be samples but will add synths made from oscillators at a later stage
+        Volume: 50, //This will be added at a later stage
+        Pan: 0, //Pan will be added at a later stage along with volume
+        Mute: false,
+        Solo: false,
+        Notes: [],
     }
 ]
-*/
-
-
-const defaultState = []
 
 export default function Tracks (state = defaultState, action) {
     switch (action.type) {
@@ -55,7 +19,7 @@ export default function Tracks (state = defaultState, action) {
         case ADD_TRACK:
         return [
             ...state, 
-            {trackId: action.trackId}]
+            action.trackObj]
 
         default:
             return state
