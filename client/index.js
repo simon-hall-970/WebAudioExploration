@@ -3,7 +3,7 @@ import {render} from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import reducers from './reducers/01_reducer.js'
+import reducers from './reducers/rootReducer.js'
 
 //require css for webpack hotloading
 require('../public/main.css') 

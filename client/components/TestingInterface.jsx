@@ -43,7 +43,7 @@ class TestInterface extends React.Component{
     }
 
     loadTracks = () => {
-        let tracks = this.props.Tracks
+        let tracks = this.props.tracks
         return tracks.map(track => <TrackContainer key={track.Id} track={track.Id}/>)
     }
 
@@ -69,8 +69,8 @@ class TestInterface extends React.Component{
 
 function mapStateToProps(reduxState) {
     return {
-        kit: reduxState.Kit,
-        Tracks: reduxState.Tracks
+        kit: reduxState.kit,
+        tracks: reduxState.tracks
     }
 }
 

@@ -2,7 +2,7 @@ import { UPDATE_NOTE_VELOCITY, ADD_NOTES_TRACK, TOGGLE_NOTE } from '../actions/n
 
 const defaultState = {}
 
-export default function noteSequencer (state=defaultState, action) {
+export default function notes (state=defaultState, action) {
     let track = `track${action.trackId}`
 
     switch (action.type) {

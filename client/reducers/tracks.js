@@ -1,4 +1,6 @@
-import {ADD_TRACK} from '../actions/tracks'
+import {ADD_TRACK, UPDATE_TRACK} from '../actions/tracks'
+import { combineReducers } from 'redux'
+import { UPDATE_NOTE_VELOCITY } from '../actions/noteControl'
 
 const defaultState = [
     {
@@ -13,7 +15,7 @@ const defaultState = [
     }
 ]
 
-export default function Tracks (state = defaultState, action) {
+export default function tracks (state = defaultState, action) {
     switch (action.type) {
 
         case ADD_TRACK:
@@ -24,5 +26,4 @@ export default function Tracks (state = defaultState, action) {
         default:
             return state
     }
-
 }

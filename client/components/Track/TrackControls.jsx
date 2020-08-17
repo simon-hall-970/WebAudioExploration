@@ -85,9 +85,9 @@ class TrackControls extends React.Component {
 
 function mapStateToProps(reduxState) {
     return {
-        kit: reduxState.Kit,
+        kit: reduxState.kit,
         measure: reduxState.measures,
-        notes: reduxState.noteSequencer,
+        notes: reduxState.notes,
         tempo: reduxState.tempo
     }
 }
