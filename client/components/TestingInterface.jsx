@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addPiece, newKit } from '../actions/drumkit'
+import { addPiece, newKit } from '../actions/kit'
 
 import * as audio from '../audioEngine/audio'
 
@@ -42,8 +42,12 @@ class TestInterface extends React.Component{
         audio.playSample(buffer)
     }
 
+    loadTracks = () => {
+        let tracks = this.props.tracks
+        return tracks.map(track => <TrackContainer key={track.Id} track={track.Id}/>)
+    }
+
     render(){
-        
       return (
           <>    
                 <div className = 'container'>
@@ -55,9 +59,7 @@ class TestInterface extends React.Component{
                     </div>
                 </div>
 
-                <TrackContainer Key={1} track = {1}/>
-
-                <TrackContainer Key={2} track = {2} />
+                {this.loadTracks()}
 
                 <AddTrack/>
             </>
@@ -67,7 +69,8 @@ class TestInterface extends React.Component{
 
 function mapStateToProps(reduxState) {
     return {
-        kit: reduxState.Kit
+        kit: reduxState.kit,
+        tracks: reduxState.tracks
     }
 }
 

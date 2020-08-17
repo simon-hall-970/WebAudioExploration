@@ -1,12 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NoteStyle from '../styledComponents/BeatStyle'
-import { updateNoteVelocity, toggleNote } from '../../actions/noteControl'
-
-/*Note selector will need to control: 
-    -true false state of each Note (whether it should be scheduled to be played or not)
-    -volume / velocity of each Note
-    -length? */
+import { updateNoteVelocity, toggleNote } from '../../actions/notes'
 
 class NoteSelect extends React.Component {
 
@@ -21,14 +16,14 @@ class NoteSelect extends React.Component {
     mouseDown = (evt) => {
         const e = evt.nativeEvent
         let checkedState = this.state.checked
-
+        //on left click toggle note on and off.
         if (e.button === 0) {
-            
             this.setState({
                 checked: !checkedState
-            }, () => {this.props.dispatch(toggleNote(this.props.track, this.props.note, this.state.checked))}
+                }, () => {this.props.dispatch(toggleNote(this.props.track, this.props.note, this.state.checked))}
             )          
         }
+        //on right click set start positions and add event listeners to listen for mouse moves and button release
         if (e.button === 2 && checkedState) {
             this.setState({
                 rightBtnDown: true,
@@ -37,13 +32,12 @@ class NoteSelect extends React.Component {
             }, () => {if (this.state.rightBtnDown) {
                 window.addEventListener("mousemove", this.velocity)
                 window.addEventListener("mouseup", this.mouseUp)
-
                 }
             })
-        }
-        
+        }     
     }
 
+    //update note velocity as mouse is moved
     velocity = (evt) => {
         let initialPos = this.state.startPosY
         let velChange = initialPos - evt.y
@@ -61,11 +55,8 @@ class NoteSelect extends React.Component {
  
     }
 
-    mouseUp = (evt) => {
-        // let track = this.props.track
-        // let note = this.props.note
-        // let velocity = this.state.velocity
-        // let checked = this.state.checked
+    //handle release of right button
+    mouseUp = (evt) => { 
         window.removeEventListener("mousemove", this.velocity)
         if (evt.button === 2) {
             this.setState({
@@ -73,6 +64,7 @@ class NoteSelect extends React.Component {
             })
         }
     }
+
     render(){
         return(
             <NoteStyle 
@@ -89,7 +81,7 @@ class NoteSelect extends React.Component {
 
 function mapStateToProps(reduxState){
     return {
-        notes: reduxState.noteSequencer
+        notes: reduxState.notes
     }
 }
 export default connect(mapStateToProps)(NoteSelect)

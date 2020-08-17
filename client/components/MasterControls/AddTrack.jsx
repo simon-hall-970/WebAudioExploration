@@ -11,12 +11,10 @@ class AddTrack extends React.Component{
         let newTrack = {
             Id: trackId,
             Name: `Track ${trackId}`,
-            Source: {},
             Volume: 50,
             Pan: 0,
             Mute: false,
             Solo: false,
-            Notes: []
         }
         
         this.props.dispatch(addNewTrack(newTrack))
@@ -38,7 +36,7 @@ class AddTrack extends React.Component{
 
 function mapStateToProps(reduxState) {
     return {
-        tracks: reduxState.Tracks,
+        tracks: reduxState.tracks,
     }
 }
 

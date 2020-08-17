@@ -1,6 +1,6 @@
 const initialState = {}
 
-function Kit (state = initialState, action) {
+function kit (state = initialState, action) {
     switch (action.type) {
 
         case 'NEW_KIT': //for functions that create a new kit.  need to return kit as object
@@ -15,4 +15,4 @@ function Kit (state = initialState, action) {
     }
 }
 
-export default Kit
+export default kit

@@ -1,4 +1,4 @@
-import {MEASURES} from '../actions/rhythm'
+import {MEASURES} from '../actions/measures'
 
 //default state = values for each measure
 const defaultState = [{

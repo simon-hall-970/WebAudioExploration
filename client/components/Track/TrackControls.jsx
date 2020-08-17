@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { audioCtx, setupSamplePiece, playSample } from '../../audioEngine/audio'
 import { noteScheduler } from '../../audioEngine/scheduler'
-import { addPiece }  from '../../actions/drumkit'
+import { addPiece }  from '../../actions/kit'
 
 class TrackControls extends React.Component {
 
@@ -85,9 +85,9 @@ class TrackControls extends React.Component {
 
 function mapStateToProps(reduxState) {
     return {
-        kit: reduxState.Kit,
+        kit: reduxState.kit,
         measure: reduxState.measures,
-        notes: reduxState.noteSequencer,
+        notes: reduxState.notes,
         tempo: reduxState.tempo
     }
 }
