@@ -19,11 +19,13 @@ Use one button that calls an object with 'name: filepath' data for a kit. Loop o
 
 #### 4. Add scheduling for multiple tracks
 Need a play button at the global level to incorporate scheduling playback across multiple tracks with different note patterns and different samples.
--Create component at master level with a button to play and pause the audio context.  
--Move scheduling engine to PlayPause component.
+- Create component at master level with a button to play and pause the audio context.  
+- Move scheduling engine to PlayPause component.
 
+#### 5. Add sample loading menu
+- Create a menu for each track to load a sample from a list of options.
 
-#### 5. Add volume controls
+#### 6. Add volume controls
 - Overall volume control at project level
 - Channel volume control at track level - for mixing
 - Sample volume control for each beat to create dynamic variation, control accents, play ghost notes, etc.
