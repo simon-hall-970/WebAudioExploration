@@ -7,6 +7,7 @@ import * as audio from '../audioEngine/audio'
 import TempoCtrl from './MasterControls/TempoCtrl'
 import TrackContainer from './Track/TrackContainer'
 import AddTrack from './MasterControls/AddTrack'
+import PlayPause from './MasterControls/PlayPause'
 
 
 class TestInterface extends React.Component{
@@ -58,6 +59,8 @@ class TestInterface extends React.Component{
                         <button className = 'btn' onClick={this.loadKit} value='basicKit'>Load Basic Kit</button>
                     </div>
                 </div>
+
+                <PlayPause />
 
                 {this.loadTracks()}
 
