@@ -1,6 +1,6 @@
 import {ADD_TRACK, UPDATE_TRACK} from '../actions/tracks'
 import { combineReducers } from 'redux'
-import { UPDATE_NOTE_VELOCITY } from '../actions/noteControl'
+import { UPDATE_NOTE_VELOCITY } from '../actions/notes'
 
 const defaultState = [
     {

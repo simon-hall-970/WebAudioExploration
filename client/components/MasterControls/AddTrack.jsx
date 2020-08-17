@@ -38,7 +38,7 @@ class AddTrack extends React.Component{
 
 function mapStateToProps(reduxState) {
     return {
-        tracks: reduxState.Tracks,
+        tracks: reduxState.tracks,
     }
 }
 

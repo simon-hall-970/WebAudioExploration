@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { audioCtx, setupSamplePiece, playSample } from '../../audioEngine/audio'
 import { noteScheduler } from '../../audioEngine/scheduler'
-import { addPiece }  from '../../actions/drumkit'
+import { addPiece }  from '../../actions/kit'
 
 class TrackControls extends React.Component {
 

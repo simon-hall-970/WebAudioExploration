@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addPiece, newKit } from '../actions/drumkit'
+import { addPiece, newKit } from '../actions/kit'
 
 import * as audio from '../audioEngine/audio'
 

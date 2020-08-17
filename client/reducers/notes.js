@@ -1,4 +1,4 @@
-import { UPDATE_NOTE_VELOCITY, ADD_NOTES_TRACK, TOGGLE_NOTE } from '../actions/noteControl'
+import { UPDATE_NOTE_VELOCITY, ADD_NOTES_TRACK, TOGGLE_NOTE } from '../actions/notes'
 
 const defaultState = {}
 
