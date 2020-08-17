@@ -18,9 +18,12 @@ Use one button that calls an object with 'name: filepath' data for a kit. Loop o
 - Using two bars of eighth notes in common time to start.
 
 #### 4. Add scheduling for multiple tracks
+Need a play button at the global level to incorporate scheduling playback across multiple tracks with different note patterns and different samples.
+-Create component at master level with a button to play and pause the audio context.  
+-Move scheduling engine to PlayPause component.
 
 
-#### 4. Add volume controls
+#### 5. Add volume controls
 - Overall volume control at project level
 - Channel volume control at track level - for mixing
 - Sample volume control for each beat to create dynamic variation, control accents, play ghost notes, etc.
