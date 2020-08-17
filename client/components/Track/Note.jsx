@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import NoteStyle from '../styledComponents/BeatStyle'
+import NoteStyle from './styledComponents/BeatStyle'
 import { updateNoteVelocity, toggleNote } from '../../actions/notes'
 
 class NoteSelect extends React.Component {
