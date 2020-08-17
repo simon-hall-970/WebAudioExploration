@@ -34,7 +34,7 @@ class PlayPause extends React.Component {
             this.setState({
                 isPlaying: true
             })
-
+            nextNoteTime = audioCtx.currentTime
             if(audioCtx.state === 'suspended'){
                 audioCtx.resume()
                 .then(() => this.schedulerInterval = setInterval(() => {
