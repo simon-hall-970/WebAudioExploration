@@ -38,18 +38,20 @@ class PlayPause extends React.Component {
             if(audioCtx.state === 'suspended'){
                 audioCtx.resume()
                 .then(() => this.schedulerInterval = setInterval(() => {
-                    //define variables each time the scheduler is called to allow changes to take effect on the fly
-                    let bpm = this.props.tempo
-                    let notes = this.props.notes[this.state.track]
-                    let buffer = this.props.kit[this.state.track]
-                    //call scheduler and pass update variables
-                    noteScheduler(bpm, notes, buffer)}, schedulerInterval)
+                    this.noteScheduler()}, schedulerInterval)
                 )
             }
         }
     }
 
-    nextNote (bpm) {
+    nextNote () {
+        let bpm = this.props.tempo
+        //the next four variables are only looking at the first measure. Later iteration to follow the beat along the measures
+        //and adjust their values according to the measure being played.  For now it's just to get things working.
+        let subdivision = this.props.measures[0].subdivision 
+        let beatValue = this.props.measures[0].beatValue
+        let beatsPerMeasure = this.props.measures[0].beats  
+        let totalNotes = (subdivision/beatValue) * beatsPerMeasure * 2 //2 measures hardcoded to start with
         console.log(bpm, subdivision, beatValue)
         //set length of note in seconds depending on bpm subdivision and beatValue
         const secondsPerNote = (60 / bpm) / (subdivision/beatValue)
@@ -62,18 +64,25 @@ class PlayPause extends React.Component {
         }
     } 
     
-    scheduleNotes(noteSequencer, buffer, time) {
-    
-        if(noteSequencer[currentNote].checked === true ) {
-            playSample(buffer, time)
-        }
+    scheduleNotes() {
+        let kit = this.props.kit
+        let notes = this.props.notes
+        let tracks = this.props.tracks.map(track => `track${track.Id}`)
+
+        tracks.forEach(track => {
+            let trackNotes = notes[track]
+            let buffer = kit[track]
+
+            if(trackNotes[currentNote].checked === true ) {
+            playSample(buffer, nextNoteTime)
+            }
+        })
     }
     
-    noteScheduler(bpm, noteSequencer, buffer) {
-    
+    noteScheduler() {
         while(nextNoteTime < audioCtx.currentTime + scheduleAheadTime) {
-            this.scheduleNotes(noteSequencer, buffer, nextNoteTime)
-            this.nextNote(bpm)
+            this.scheduleNotes()
+            this.nextNote()
         }
     }
     
@@ -88,7 +97,7 @@ class PlayPause extends React.Component {
 
 function mapStateToProps(reduxState) {
     return {
-        bpm: reduxState.tempo,
+        tempo: reduxState.tempo,
         measures: reduxState.measures,
         kit: reduxState.kit,
         tracks: reduxState.tracks,
