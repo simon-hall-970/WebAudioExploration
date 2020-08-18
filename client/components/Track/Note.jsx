@@ -50,9 +50,7 @@ class NoteSelect extends React.Component {
         let vel = finalVel()
         this.setState({
             velocity: vel           
-        }, () => {this.props.dispatch(updateNoteVelocity(this.props.track, this.props.note, this.state.velocity))}
-        )
- 
+        }) 
     }
 
     //handle release of right button
@@ -61,7 +59,7 @@ class NoteSelect extends React.Component {
         if (evt.button === 2) {
             this.setState({
                 rightBtnDown: false,
-            })
+            },  () => {this.props.dispatch(updateNoteVelocity(this.props.track, this.props.note, this.state.velocity))})
         }
     }
 
