@@ -26,17 +26,6 @@ class TestInterface extends React.Component{
         this.props.dispatch(newKit(kitObj))
     }
 
-    loadSample = (evt) => {
-        let drumPiece = evt.target.innerText
-        let fileName = evt.nativeEvent.target.value
-        return audio.setupSamplePiece(fileName)
-        .then (sample => {
-            console.log(sample)
-            this.props.dispatch(addPiece(drumPiece, sample))
-            return sample
-        })
-    }
-
     play = (evt) => {
         let kitPiece = evt.target.value
         let buffer = this.props.kit[kitPiece]
@@ -54,7 +43,7 @@ class TestInterface extends React.Component{
                 <div className = 'container'>
                     <TempoCtrl />
                 </div>
-                
+
                 <div className = 'container'> Load multiple samples (Basic Kit = HH, Snare, Kick)
                     <div className = 'btn_container'>
                         <button className = 'btn' onClick={this.loadKit} value='basicKit'>Load Basic Kit</button>

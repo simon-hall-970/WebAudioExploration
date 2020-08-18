@@ -8,7 +8,11 @@ function kit (state = initialState, action) {
 
         case 'ADD_KIT_PIECE':
             return {...state,
-                [action.track]: action.buffer}
+                [action.track]: {
+                    name: action.sampleName,
+                    buffer: action.buffer
+                }
+            }
 
         default:
             return state

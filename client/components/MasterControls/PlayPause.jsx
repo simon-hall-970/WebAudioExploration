@@ -71,7 +71,7 @@ class PlayPause extends React.Component {
 
         tracks.forEach(track => {
             let trackNotes = notes[track]
-            let buffer = kit[track]
+            let buffer = kit[track].buffer
 
             if(trackNotes[currentNote].checked === true ) {
             playSample(buffer, nextNoteTime)

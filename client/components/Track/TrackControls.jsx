@@ -6,7 +6,6 @@ import SampleLoad from './SampleLoad'
 class TrackControls extends React.Component {
 
     componentDidMount(){
-        audioCtx.suspend()
     }
 
     state = {
@@ -19,7 +18,7 @@ class TrackControls extends React.Component {
 
     //play function plays sound source once to check the sound state.
     test = () => {
-        let buffer = this.props.kit[this.state.track]
+        let buffer = this.props.kit[this.state.track].buffer
         if(audioCtx.state === 'suspended') {
             audioCtx.resume()
             .then(playSample(buffer))
