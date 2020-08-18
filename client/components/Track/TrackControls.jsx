@@ -1,13 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { audioCtx, setupSamplePiece, playSample } from '../../audioEngine/audio'
-import { noteScheduler } from '../../audioEngine/scheduler'
-import { addPiece }  from '../../actions/kit'
+import { audioCtx, playSample } from '../../audioEngine/audio'
+import SampleLoad from './SampleLoad'
 
 class TrackControls extends React.Component {
 
     componentDidMount(){
-        audioCtx.suspend()
     }
 
     state = {
@@ -16,20 +14,11 @@ class TrackControls extends React.Component {
         isPlaying: false
     }
     
-    loadSample = (evt) => {
-        let fileName = evt.nativeEvent.target.value
-        return setupSamplePiece(fileName)
-        .then (sample => {
-            console.log(sample)
-            this.props.dispatch(addPiece(this.state.track, sample))
-            this.setState({play: false})
-            return sample
-        })
-    }
+
 
     //play function plays sound source once to check the sound state.
     test = () => {
-        let buffer = this.props.kit[this.state.track]
+        let buffer = this.props.kit[this.state.track].buffer
         if(audioCtx.state === 'suspended') {
             audioCtx.resume()
             .then(playSample(buffer))
@@ -44,8 +33,8 @@ class TrackControls extends React.Component {
     render() {
         return(
                 <div className = 'btn_container'>
-                    <button className = 'btn load' onClick={this.loadSample} value='snare.wav'>snare</button>
-                    <button className = 'btn play' onClick={this.test} value="snare" >Test</button>
+                    <SampleLoad track = {this.state.track} />
+        <span className='selected-sample'>Placeholder text</span> <button className = 'btn play' onClick={this.test}>Test</button>
                 </div>
         )
     }

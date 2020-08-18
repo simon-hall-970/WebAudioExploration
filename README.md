@@ -22,12 +22,20 @@ Use one button that calls an object with 'name: filepath' data for a kit. Loop o
 - Update play function to accommodate multiple tracks.
 - Revise shape of state to provide better data structure.
 
-#### 4. Add volume controls
+Need a play button at the global level to incorporate scheduling playback across multiple tracks with different note patterns and different samples.
+- Create component at master level with a button to play and pause the audio context.  
+- Move scheduling engine to PlayPause component.
+
+#### 5. Add sample loading menu
+- Create a menu for each track to load a sample from a list of options.
+
+#### 6. Add volume controls
 - Overall volume control at project level
 - Channel volume control at track level - for mixing
 - Sample volume control for each beat to create dynamic variation, control accents, play ghost notes, etc.
 
-
+#### To fix
+- stutter when changing velocity during playback. solve: use local state for display to get continuous visual feedback then push to global state to be used for volume control during playback.
 
 
 
