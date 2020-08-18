@@ -35,7 +35,11 @@ Need a play button at the global level to incorporate scheduling playback across
 - Sample volume control for each beat to create dynamic variation, control accents, play ghost notes, etc.
 
 #### To fix
-- stutter when changing velocity during playback. solve: use local state for display to get continuous visual feedback then push to global state to be used for volume control during playback.
+- SOLVED stutter when changing velocity during playback. solve: use local state for display to get continuous visual feedback then push to global state to be used for volume control during playback.
+
+- add track during playback causes error due to no buffer.
+
+- some samples (kick drum) have an audible end to them as the white noise is cut off abruptly when the sample ends. Solutions - Check if there is a WebAudioAPI gate with a soft release that could tail off the end of the sample.  If this doesn't work use linear ramp to 0 and the duration parameter of the samplebuffer object in conjunction with the start time to set a volume ramp from whatever the current sample volume down to zero starting from a few milliseconds before end of the sample.  At this point the solution will apply to all samples but in later iterations could be turned on and off or user controlled.
 
 
 

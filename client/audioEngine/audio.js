@@ -45,11 +45,11 @@ export function setupSampleKit(samplesObj) {
 
 //create gain nodes
 let sampleGain = audioCtx.createGain()
-let trackGain = audioCtx.createGain()
-let masterGain = audioCtx.createGain()
+export let trackGain = audioCtx.createGain()
+export let masterGain = audioCtx.createGain()
 
 //set up our play sample to accept time parameter for scheduling playback with default playback at current time.
-export function playSample(audioBuffer, time=audioCtx.currentTime, gainVolume) {
+export function playSample(audioBuffer, time=audioCtx.currentTime, gainVolume=100) {
     const sampleSource = audioCtx.createBufferSource()
     sampleSource.buffer = audioBuffer
     sampleGain.gain.setValueAtTime(gainVolume/100, time) //accepts volume parameter in range 0-100 converts to decimal and schedules gain

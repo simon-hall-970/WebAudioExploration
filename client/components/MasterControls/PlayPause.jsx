@@ -75,6 +75,7 @@ class PlayPause extends React.Component {
 
             if(trackNotes[currentNote].checked === true ) {
                 let sampleVolume = trackNotes[currentNote].velocity
+                console.log("scheduleNotes sampleVolume = ", sampleVolume)
                 playSample(buffer, nextNoteTime, sampleVolume)
             }
         })
