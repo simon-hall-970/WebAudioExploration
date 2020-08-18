@@ -7,8 +7,17 @@ class AddTrack extends React.Component{
     //adding new track.  Track state should hold relevant track info in track control settings, track type, audio buffer etc
     //need to redesign state structure and UI.
     addTrack = () => {
-        console.log("addTrack button clicked and successfully called addTrack function")
-        this.props.dispatch(addNewTrack())
+        let trackId = this.props.tracks.length+1
+        let newTrack = {
+            Id: trackId,
+            Name: `Track ${trackId}`,
+            Volume: 50,
+            Pan: 0,
+            Mute: false,
+            Solo: false,
+        }
+        
+        this.props.dispatch(addNewTrack(newTrack))
     }
 
     render(){
@@ -28,7 +37,6 @@ class AddTrack extends React.Component{
 function mapStateToProps(reduxState) {
     return {
         tracks: reduxState.tracks,
-        kit: reduxState.Kit
     }
 }
 

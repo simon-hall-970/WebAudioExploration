@@ -18,6 +18,10 @@ Use one button that calls an object with 'name: filepath' data for a kit. Loop o
 - Using two bars of eighth notes in common time to start.
 
 #### 4. Add scheduling for multiple tracks
+- Add reducers to allow for multiple tracks.
+- Update play function to accommodate multiple tracks.
+- Revise shape of state to provide better data structure.
+
 Need a play button at the global level to incorporate scheduling playback across multiple tracks with different note patterns and different samples.
 - Create component at master level with a button to play and pause the audio context.  
 - Move scheduling engine to PlayPause component.
@@ -30,7 +34,12 @@ Need a play button at the global level to incorporate scheduling playback across
 - Channel volume control at track level - for mixing
 - Sample volume control for each beat to create dynamic variation, control accents, play ghost notes, etc.
 
+#### To fix
+- SOLVED stutter when changing velocity during playback. solve: use local state for display to get continuous visual feedback then push to global state to be used for volume control during playback.
 
+- add track during playback causes error due to no buffer.
+
+- some samples (kick drum) have an audible end to them as the white noise is cut off abruptly when the sample ends. Solutions - Check if there is a WebAudioAPI gate with a soft release that could tail off the end of the sample.  If this doesn't work use linear ramp to 0 and the duration parameter of the samplebuffer object in conjunction with the start time to set a volume ramp from whatever the current sample volume down to zero starting from a few milliseconds before end of the sample.  At this point the solution will apply to all samples but in later iterations could be turned on and off or user controlled.
 
 
 

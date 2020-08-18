@@ -2,13 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TrackMeasure from './Measures'
 
-/*TrackNotes will need to:
-        - read number of measures from state
-        - create each measure and pass it:
-            + measure number
-            + track number
-            + note count (number of notes from previous measures) */
-
 class TrackNotes extends React.Component {
 
     measuresArr = () => {
@@ -42,7 +35,6 @@ class TrackNotes extends React.Component {
 function mapStateToProps(reduxState) {
     return {
         measures: reduxState.measures,
-        kit: reduxState.kit
     }
 }
 

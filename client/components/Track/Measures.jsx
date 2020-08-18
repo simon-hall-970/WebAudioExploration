@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NoteSelect from './Note'
-import {addNotes} from '../../actions/noteControl'
+import {addNotes} from '../../actions/notes'
 
 /*TrackMeasure loops through each subdivision of each beat in a single measure will need to:
         - create a BeatSelect for each beat*/

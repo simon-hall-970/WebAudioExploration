@@ -57,25 +57,14 @@ div .container {
   min-width: 140px;
 }
 
-.play {
-  position: absolute;
-  left: 175px;
-}
-
-.play:active {
-  position: absolute;
-  top: 1px;
-}
-
 .playPause {
-  position: absolute;
-  left: 275px;
+  position: relative;
   width: auto;
 }
 
 .playPause:active {
-  position:absolute;
-  top: 1px;
+  position:relative;
+
 }
 
 
