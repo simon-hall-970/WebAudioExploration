@@ -68,7 +68,7 @@ class PlayPause extends React.Component {
         let kit = this.props.kit
         let notes = this.props.notes
         let tracks = this.props.tracks.map(track => `track${track.Id}`)
-
+        
         tracks.forEach(track => {
             let trackNotes = notes[track]
             let buffer = kit[track].buffer

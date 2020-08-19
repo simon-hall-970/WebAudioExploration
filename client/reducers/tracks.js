@@ -1,6 +1,5 @@
-import {ADD_TRACK, UPDATE_TRACK} from '../actions/tracks'
+import {ADD_TRACK, VOLUME_CHANGE} from '../actions/tracks'
 import { combineReducers } from 'redux'
-import { UPDATE_NOTE_VELOCITY } from '../actions/notes'
 
 const defaultState = [
     {
@@ -20,6 +19,18 @@ export default function tracks (state = defaultState, action) {
         return [
             ...state, 
             action.trackObj]
+
+        case VOLUME_CHANGE:
+            let updatedTracks = state.map((item) => {
+                if(item.Id==action.Id) {
+                    return {
+                        ...item,
+                        Volume: action.volume
+                    }
+                }
+                return item
+            })
+            return updatedTracks
 
         default:
             return state

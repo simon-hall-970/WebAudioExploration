@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { audioCtx, playSample } from '../../audioEngine/audio'
 import SampleLoad from './SampleLoad'
-// import TrackVolume from './TrackVolume'
+import TrackVolume from './TrackVolume'
 
 class TrackControls extends React.Component {
 
@@ -35,7 +35,7 @@ class TrackControls extends React.Component {
         return(
                 <div className = 'btn_container'>
                     <SampleLoad track = {this.state.track} />
-                    {/* <TrackVolume /> */}
+                    <TrackVolume track={this.props.track}/>
         <span className='selected-sample'>Placeholder text</span> <button className = 'btn play' onClick={this.test}>Test</button>
                 </div>
         )
