@@ -28,7 +28,7 @@ class SampleLoad extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="sample-btn-container">
                 <button className = 'btn load'  onClick={this.displayMenu} >{`Select sample ${this.state.showMenu ? '-' : '+'}`}</button>
 
                 {this.state.showMenu ? (

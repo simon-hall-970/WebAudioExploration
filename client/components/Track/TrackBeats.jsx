@@ -26,9 +26,9 @@ class TrackNotes extends React.Component {
     render() {
     
         return (
-            <>
+            <div className="track-notes">
                 {this.measuresArr()}
-            </>)
+            </div>)
     }
 }
 
