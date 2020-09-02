@@ -13,6 +13,7 @@
 div .container {
   height: auto;
   padding: 5px;
+  width: auto;
 }
 
 /* button */

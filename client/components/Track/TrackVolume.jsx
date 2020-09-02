@@ -1,19 +1,23 @@
-// import React from 'react'
-// import { audioCtx, trackGain } from '../../audioEngine/audio'
+import React from 'react'
+import { connect } from 'react-redux'
+import { updateTrackVolume } from '../../actions/tracks'
 
-// function TrackVolume () {
+class TrackVolume extends React.Component {  
 
-//     const volumeHandler = (evt) => {
-//         let value = evt.target.value/100
-//         trackGain.gain.value = value
-//     }
+    volumeHandler = (evt) => {
+        let trackId = this.props.track
+        let value = evt.target.value/100
+        this.props.dispatch(updateTrackVolume(trackId, value))
+    }
 
-//     return (
-//         <div className="volume track-volume">
-//             <input id="trackVolume" type="range" max="100" min="0" step='1' onChange={volumeHandler} />
-//             <label for="trackVolume">Gain</label> 
-//         </div>
-//     )
-// }
+    render () {
+        return (
+            <div className="volume track-volume">
+                <input id="trackVolume" type="range" max="100" min="0" step='1' onChange={this.volumeHandler} />
+                <span>Track Gain</span> 
+            </div>
+        )
+    }
+}
 
-// export default TrackVolume
+export default connect()(TrackVolume)

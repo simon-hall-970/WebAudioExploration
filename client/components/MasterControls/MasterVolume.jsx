@@ -11,7 +11,7 @@ function MasterVolume () {
     return (
         <div className="volume track-volume">
             <input id="trackVolume" type="range" max="100" min="0" step='1' onChange={volumeHandler} />
-            <label htmlFor="trackVolume">Gain</label> 
+            <label htmlFor="trackVolume">Master Gain</label> 
         </div>
     )
 }
