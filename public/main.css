@@ -15,9 +15,23 @@ div .container {
   padding: 5px;
   width: auto;
 }
+.track-container {
+  display: flex;
+
+}
+
+.track-controls {
+  display: inline-block;
+  height: auto;
+  width: 15%;
+}
+
+.track-notes {
+  display: inline-block;
+}
 
 /* button */
-.btn_container {
+.sample-btn-container {
   position: relative;
 }
 
@@ -67,8 +81,6 @@ div .container {
   position:relative;
 
 }
-
-
 
 /*TEMPO*/
 
