@@ -35,8 +35,8 @@ class TrackControls extends React.Component {
         return(
                 <div className = 'track-controls'>
                     <SampleLoad track = {this.state.track} />
-                    <TrackVolume track={this.props.track}/>
-        <span className='selected-sample'>Placeholder text</span> <button className = 'btn play' onClick={this.test}>Test</button>
+                    <TrackVolume track={this.props.track}/> 
+                    <button className = 'btn play' onClick={this.test}>Test</button>
                 </div>
         )
     }
