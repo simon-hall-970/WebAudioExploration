@@ -66,7 +66,6 @@ class PlayPause extends React.Component {
     
     scheduleNotes() {
         let { kit, notes, tracks } = this.props         
-        let trackIds = tracks.map(track => `track${track.Id}`)
         
         tracks.forEach(track => {
             let trackId = `track${track.Id}`
@@ -76,8 +75,6 @@ class PlayPause extends React.Component {
             if(trackNotes[currentNote].checked === true ) {
                 let sampleVolume = trackNotes[currentNote].velocity
                 let trackVolume = track.Volume
-                console.log("scheduleNotes sampleVolume = ", sampleVolume)
-                console.log("track volume = ", trackVolume)
                 playSample(buffer, nextNoteTime, sampleVolume, trackVolume)
             }
         })
