@@ -4,8 +4,9 @@ import { masterGain } from '../../audioEngine/audio'
 function MasterVolume () {
 
     const volumeHandler = (evt) => {
-        let value = evt.target.value/100
-        masterGain.gain.value = value
+        let value = parseInt(evt.target.value, 10)
+        masterGain.gain.value = value/100
+        console.log(masterGain.gain.value)
     }
 
     return (

@@ -14,8 +14,6 @@ class TrackControls extends React.Component {
         track: `track${this.props.track}`, //props.track will not be updated so okay to be used in state
         isPlaying: false
     }
-    
-
 
     //play function plays sound source once to check the sound state.
     test = () => {
@@ -29,7 +27,6 @@ class TrackControls extends React.Component {
             playSample(buffer)
         }
     }
-
 
     render() {
         return(
