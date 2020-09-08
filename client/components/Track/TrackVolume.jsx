@@ -6,7 +6,7 @@ class TrackVolume extends React.Component {
 
     volumeHandler = (evt) => {
         let trackId = this.props.track
-        let value = evt.target.value/100
+        let value = parseInt(evt.target.value, 10)
         this.props.dispatch(updateTrackVolume(trackId, value))
     }
 
