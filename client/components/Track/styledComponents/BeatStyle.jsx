@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-let noteWidth = (window.innerWidth * 0.78) / 16
+// let noteWidth = (window.innerWidth * 0.78) / 16
 
 const NoteStyle = styled.div`
     position: relative;
@@ -10,7 +10,9 @@ const NoteStyle = styled.div`
     translate: -50%; */
     margin: 2px;
     height: 120px;
-    width: ${noteWidth}px;
+
+    flex-grow: 1;
+    flex-shrink: 0;
     background-color: rgb(200,200,200);
     text-align: center;
     line-height: 120px;
