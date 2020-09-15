@@ -30,10 +30,10 @@ class TrackControls extends React.Component {
 
     render() {
         return(
-                <div className = 'track-controls'>
+                <div className = 'track-controls' onClick={this.test}>
                     <SampleLoad track = {this.state.track} />
                     <TrackVolume track={this.props.track}/> 
-                    <button className = 'btn play' onClick={this.test}>Test</button>
+                    
                 </div>
         )
     }
