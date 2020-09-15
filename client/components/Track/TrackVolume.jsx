@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 import { updateTrackVolume } from '../../actions/tracks'
 
 class TrackVolume extends React.Component {  
@@ -12,9 +14,10 @@ class TrackVolume extends React.Component {
 
     render () {
         return (
-            <div className="volume track-volume">
+            <div className="track-vol-wrapper">
+                <FontAwesomeIcon className="track-volume-icon" icon={faVolumeUp} />
                 <input id="trackVolume" type="range" max="100" min="0" step='1' onChange={this.volumeHandler} />
-                <span>Track Gain</span> 
+                
             </div>
         )
     }

@@ -18,7 +18,8 @@ class TrackNotes extends React.Component {
                     measureNumber={index} 
                     track={track} 
                     firstNote={firstNote - notesThisMeasure}
-                    notesThisMeasure={notesThisMeasure}/>)
+                    notesThisMeasure={notesThisMeasure}/>
+                )
             })
         )
     }

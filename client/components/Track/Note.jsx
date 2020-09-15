@@ -70,7 +70,11 @@ class NoteSelect extends React.Component {
                 onContextMenu = {e => e.preventDefault()}
                 velocity = {this.state.velocity}
                 checked = {this.state.checked}
-            > {this.state.checked ? this.state.velocity : 0}
+            > 
+                {/* <div className="velocityLabel">
+                    {this.state.checked ? this.state.velocity : 0}
+                </div> */}
+                
             </NoteStyle>
 
         )

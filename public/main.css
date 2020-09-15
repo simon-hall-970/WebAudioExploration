@@ -23,17 +23,22 @@ div .container {
 .track-controls {
   display: inline-block;
   height: auto;
-  width: 15%;
+  width: 180px;
 }
 
 .track-notes {
-  display: inline-block;
+  display:inline-flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-grow: 1;
 }
 
 /* button */
 .sample-btn-container {
   position: relative;
 }
+
+
 
 .btn {
   box-shadow: 3px 4px 0px 0px #899599;
@@ -45,7 +50,7 @@ div .container {
 	cursor:pointer;
 	color:#3a8a9e;
 	font-family:Arial;
-	font-size:17px;
+	font-size:10px;
   padding:7px 25px;
   margin: 7px;
 	text-decoration:none;
@@ -95,3 +100,5 @@ div .container {
   text-align: right;
   width: 40px;
 }
+
+@import "./volumeSlider.css"
