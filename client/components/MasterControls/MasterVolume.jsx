@@ -10,9 +10,9 @@ function MasterVolume () {
     }
 
     return (
-        <div className="volume track-volume">
-            <input id="trackVolume" type="range" max="100" min="0" step='1' onChange={volumeHandler} />
-            <label htmlFor="trackVolume">Master Gain</label> 
+        <div className="volume master-volume">
+            <input id="masterVolume" type="range" max="100" min="0" step='1' onChange={volumeHandler} />
+            <label htmlFor="masterVolume">Master Gain</label> 
         </div>
     )
 }

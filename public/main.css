@@ -38,6 +38,8 @@ div .container {
   position: relative;
 }
 
+
+
 .btn {
   box-shadow: 3px 4px 0px 0px #899599;
 	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
@@ -98,3 +100,5 @@ div .container {
   text-align: right;
   width: 40px;
 }
+
+@import "./volumeSlider.css"
