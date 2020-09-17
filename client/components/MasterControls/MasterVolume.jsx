@@ -11,7 +11,7 @@ function MasterVolume () {
 
     return (
         <div className="volume master-volume">
-            <input id="masterVolume" type="range" max="100" min="0" step='1' onChange={volumeHandler} />
+            <input id="masterVolume" className="volume" type="range" max="100" min="0" step='1' onChange={volumeHandler} />
             <label htmlFor="masterVolume">Master Gain</label> 
         </div>
     )

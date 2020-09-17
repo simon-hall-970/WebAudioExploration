@@ -8,12 +8,11 @@ const NoteStyle = styled.div`
     display: inline-block;
     /* left: 50%;
     translate: -50%; */
-    margin: 2px;
+    margin: 0 2px;
     height: 120px;
-
     flex-grow: 1;
     flex-shrink: 0;
-    background-color: rgb(200,200,200);
+    background-color: white;
     text-align: center;
     line-height: 120px;
     font-size: 100%;

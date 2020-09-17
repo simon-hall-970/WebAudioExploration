@@ -1,11 +1,13 @@
 div.track-vol-wrapper {
     display: inline-block;
+    overflow: hidden;
     width: 24px;
     height: 100%;
 }
-/* .track-volume-icon {
-    margin: auto;
-} */
+.track-volume-icon {
+    display: inline-block;
+    margin: 2px 2px 0;
+}
 
 /*RESET DEFAULT SLIDER */
 input[type=range] {
@@ -34,7 +36,8 @@ input[type=range] {
   
   /* STYLE NEW SLIDER */
 
-  input#trackVolume[type=range] {
+  /*Track Volume slider*/
+  input#track-volume[type=range] {
     /*rotate for vertical slider*/
     -webkit-transform:rotate(90deg);
     -moz-transform:rotate(90deg);
@@ -48,7 +51,7 @@ input[type=range] {
 
   /* style thumb */
   /* Special styling for WebKit/Blink */
-  input[type=range]::-webkit-slider-thumb {
+  input.volume[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: 1px solid #000000;
     height: 16px;
