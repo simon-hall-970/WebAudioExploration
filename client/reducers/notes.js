@@ -24,7 +24,6 @@ export default function notes (state=defaultState, action) {
 
         
         case TOGGLE_NOTE:
-            console.log("Toggle_Note reducer running")
             let toggledTrack = state[track].map((item) => {
                 if(item.note==action.note) {
                     return {
