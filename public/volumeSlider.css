@@ -1,7 +1,9 @@
+
 div.track-vol-wrapper {
     display: inline-block;
-    overflow: hidden;
-    width: 24px;
+    margin-left: 2px;
+    overflow: visible;
+    width: 28px;
     height: 100%;
 }
 .track-volume-icon {
@@ -12,7 +14,8 @@ div.track-vol-wrapper {
 /*RESET DEFAULT SLIDER */
 input.volume[type=range] {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    width: 80px; /* Specific width is required for Firefox. */
+    width: 120px; /* Specific width is required for Firefox. */
+    margin-right: 30px;
     background: transparent; /* Otherwise white in Chrome */
   }
  
@@ -45,7 +48,7 @@ input.volume[type=range] {
     -ms-transform:rotate(90deg);
     transform:rotate(90deg);
     transform-origin: 0% 100%;
-    margin-left: 25%;
+    margin-left: 1%;
   }
 
 
@@ -53,15 +56,27 @@ input.volume[type=range] {
   /* Special styling for WebKit/Blink */
   input.volume[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
+    position:relative;
     border: 1px solid #000000;
-    height: 16px;
-    width: 24px;
-    border-radius: 3px;
-    background: #d8d7d7;
+    height: 28px;
+    width: 28px;
+    border-radius: 14px;
+    background-color: #d8d7d7;
+    
+    background-size: 18px;
+    background-image: url(/assets/VolumeUp.svg);
+    background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
-    margin-top: -4.2px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    margin-top: -2px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
     box-shadow: 2px 1px 1px #000000, 0px 0px 1px #0d0d0d, inset 3px 3px 2px #eee; /* Add cool effects to your sliders! */
   }
+  /* input.volume[type=range]::-webkit-slider-thumb::after {
+    position: absolute;
+    background-image: url(/assets/VolumeUp.svg);
+    background-size: 22px;
+    transform: rotate(270deg);
+  } */
   
   /* All the same stuff for Firefox */
   input.volume[type=range]::-moz-range-thumb {
@@ -88,7 +103,7 @@ input.volume[type=range] {
   /*STYLE VOLUME TRACK*/
   input.volume[type=range]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 8.4px;
+    height: 24px;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: #3071a9;

@@ -15,7 +15,7 @@ class TrackVolume extends React.Component {
     render () {
         return (
             <div className="track-vol-wrapper">
-                <FontAwesomeIcon className="track-volume-icon" icon={faVolumeUp} />
+                {/* <FontAwesomeIcon className="track-volume-icon" icon={faVolumeUp} /> */}
                 <input id="track-volume" className="volume" type="range" max="100" min="0" step='1' onChange={this.volumeHandler} />               
             </div>
         )

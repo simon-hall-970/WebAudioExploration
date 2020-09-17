@@ -30,7 +30,9 @@ div .container {
 .track-face {
   display: flex;
   width: auto;
+
 }
+
 
 .track-notes {
   display:inline-flex;
