@@ -40,10 +40,8 @@ class TestInterface extends React.Component{
 
     render(){
       return (
-          <>    
-                <div className = 'container'>
-                    <TempoCtrl />
-                </div>
+            <>    
+                <TempoCtrl />
 
                 <div className = 'container'> Load multiple samples (Basic Kit = HH, Snare, Kick)
                     <div className = 'btn_container'>

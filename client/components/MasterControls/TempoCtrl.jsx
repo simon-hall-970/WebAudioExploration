@@ -10,16 +10,17 @@ class TempoController extends React.Component {
 
     render() {
         return(
-            <>
+            <div className="tempo-wrapper">
                 <label className = 'tempo' htmlFor="tempo"><span id="bpmVal">{this.props.tempo}</span> Beats per Minute (BPM)</label>
                 <input name="tempo" 
+                    className = 'tempo-slider'
                     type="range" 
                     min="60" 
                     max="180" 
                     value={this.props.tempo} 
                     step="1"
                     onChange={this.changeTempo} />              
-            </>
+            </div>
         )
     }
 }
