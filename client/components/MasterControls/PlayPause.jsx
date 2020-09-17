@@ -52,7 +52,7 @@ class PlayPause extends React.Component {
         let beatValue = this.props.measures[0].beatValue
         let beatsPerMeasure = this.props.measures[0].beats  
         let totalNotes = (subdivision/beatValue) * beatsPerMeasure * 2 //2 measures hardcoded to start with
-        console.log(bpm, subdivision, beatValue)
+
         //set length of note in seconds depending on bpm subdivision and beatValue
         const secondsPerNote = (60 / bpm) / (subdivision/beatValue)
         nextNoteTime += secondsPerNote  //update timing of next note event based on length of this note event

@@ -4,12 +4,12 @@ import {MEASURES} from '../actions/measures'
 const defaultState = [{
         beats: 4,
         beatValue: 4,
-        subdivision: 8,
+        subdivision: 16,
     },
     {
         beats: 4,
         beatValue: 4,
-        subdivision: 8,
+        subdivision: 16,
     }]
 
 export default function measures (state = defaultState, action) {

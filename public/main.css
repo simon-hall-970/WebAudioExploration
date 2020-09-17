@@ -1,7 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 0.5px solid green;
+  /* border: 0.5px solid green; */
   margin: 0;
   padding: 0;
 }
@@ -15,30 +15,37 @@ div .container {
   padding: 5px;
   width: auto;
 }
+
 .track-container {
   display: flex;
-
+  border: 1px solid lightgray;
 }
 
 .track-controls {
-  display: inline-block;
+  display: flex;
   height: auto;
-  width: 180px;
+  max-width: 180px;
 }
+
+.track-face {
+  display: flex;
+  width: auto;
+
+}
+
 
 .track-notes {
   display:inline-flex;
   justify-content: flex-start;
   align-items: stretch;
-  flex-grow: 1;
+  flex-grow: 3;
+  background-color: lightgray;
 }
 
 /* button */
-.sample-btn-container {
+/* .sample-btn-container {
   position: relative;
-}
-
-
+} */
 
 .btn {
   box-shadow: 3px 4px 0px 0px #899599;
@@ -74,7 +81,10 @@ div .container {
 }
 
 .load {
-  min-width: 140px;
+  flex-shrink: 1;
+  min-width: auto;
+  max-height: 13%;
+  padding: 0 8px;
 }
 
 .playPause {
@@ -84,7 +94,6 @@ div .container {
 
 .playPause:active {
   position:relative;
-
 }
 
 /*TEMPO*/
