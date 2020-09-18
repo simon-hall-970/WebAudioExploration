@@ -37,7 +37,7 @@ input.tempo[type=range] {
   /* STYLE NEW SLIDER */
 
   /*Track Volume slider*/
-  input#track-volume[type=range] {
+  input.track-volume[type=range] {
     /*rotate for vertical slider*/
     -webkit-transform:rotate(90deg);
     -moz-transform:rotate(90deg);

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="VolumeUp-vertical.svg"
+   height="576"
+   width="480.02255"
+   id="svg22"
+   version="1.1">
+  <sodipodi:namedview
+     inkscape:current-layer="svg22"
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:cy="288"
+     inkscape:cx="240.01128"
+     inkscape:zoom="0.4528372"
+     showgrid="false"
+     id="namedview6"
+     inkscape:window-height="480"
+     inkscape:window-width="687"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <metadata
+     id="metadata28">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs26" />
+  <path
+     id="path20"
+     d="M 424.96792,215.03 336.01793,126.06 V 23.999997 c 0,-13.26 -10.74,-23.9999996845815 -24,-23.9999996845815 h -144 c -13.25,0 -24,10.7399996845815 -24,23.9999996845815 V 126.06 l -88.950003,88.97 c -15.03,15.03 -4.47,40.97 16.97,40.97 H 407.99792 c 21.46,0 31.98,-25.96 16.97,-40.97 z m 51.08,233.32 c 7.33,-11.17 4.24,-26.18 -6.95,-33.51 -11.17,-7.34 -26.18,-4.22 -33.51,6.95 -43.49,66.27 -116.59999,105.82 -195.57999,105.82 -78.98,0 -152.090003,-39.55 -195.580003,-105.82 -7.32,-11.17 -22.34,-14.29 -33.5,-6.95 C 0.21792732,421.88 -3.6320727,436.77 3.9779273,448.35 56.437927,528.27 144.68793,576 240.01793,576 c 95.33,0 183.56999,-47.73 236.02999,-127.65 z M 240.01793,480 c 63.53,0 121.94,-32.06 156.23999,-85.77 7.14,-11.19 3.82,-26.03 -7.46,-33.12 -11.27999,-7.09 -26.20999,-3.78 -33.35999,7.41 -25.39,39.75 -68.53,63.48 -115.42,63.48 -46.89,0 -90.03,-23.73 -115.42,-63.48 -7.14,-11.19 -22.07,-14.5 -33.360003,-7.41 -10.36,6.51 -15.14,21.12 -7.46,33.12 C 118.07793,447.94 176.47793,480 240.01793,480 Z m 76.87,-141.77 c 6.33,-11.58 2.16,-26.19 -9.45,-32.61 -11.61,-6.39 -26.2,-2.16 -32.61,9.45 -7.09,12.91 -20.44,20.93 -34.81,20.93 -14.38,0 -27.72,-8.02 -34.81,-20.92 -6.41,-11.61 -21,-15.84 -32.61,-9.45 -11.66,6.43 -15.8,21.05 -9.45,32.61 15.55,28.23 45,45.77 76.88,45.77 31.88,0 61.32,-17.54 76.86,-45.78 z" />
+</svg>
