@@ -14,8 +14,7 @@ div.track-vol-wrapper {
 /*RESET DEFAULT SLIDER */
 input.volume[type=range] {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    width: 120px; /* Specific width is required for Firefox. */
-    margin-right: 30px;
+    width: 300px; /* Specific width is required for Firefox. */
     background: transparent; /* Otherwise white in Chrome */
   }
  
@@ -40,15 +39,16 @@ input.volume[type=range] {
   /* STYLE NEW SLIDER */
 
   /*Track Volume slider*/
-  input#track-volume[type=range] {
+  input.track-volume[type=range] {
     /*rotate for vertical slider*/
-    -webkit-transform:rotate(90deg);
-    -moz-transform:rotate(90deg);
-    -o-transform:rotate(90deg);
-    -ms-transform:rotate(90deg);
-    transform:rotate(90deg);
+    position: relative;
+    -webkit-transform:rotate(270deg);
+    -moz-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    -ms-transform:rotate(270deg);
+    transform:rotate(270deg);
     transform-origin: 0% 100%;
-    margin-left: 1%;
+    left:26px;
   }
 
 
@@ -57,53 +57,58 @@ input.volume[type=range] {
   input.volume[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     position:relative;
-    border: 1px solid #000000;
+    border-top: 1px solid rgb(219, 219, 219);
+    border-left: 1px solid rgb(219, 219, 219);
+    border-bottom: none;
+    border-right: none;
     height: 28px;
     width: 28px;
     border-radius: 14px;
     background-color: #d8d7d7;
-    
-    background-size: 18px;
+    background-size: 20px;
     background-image: url(/assets/VolumeUp.svg);
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
     margin-top: -2px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-    box-shadow: 2px 1px 1px #000000, 0px 0px 1px #0d0d0d, inset 3px 3px 2px #eee; /* Add cool effects to your sliders! */
+    box-shadow: 2px 2px 1px #1b1b1b, inset 1px 1px 2px #eee; /* Add cool effects to your sliders! */
   }
-  /* input.volume[type=range]::-webkit-slider-thumb::after {
-    position: absolute;
-    background-image: url(/assets/VolumeUp.svg);
-    background-size: 22px;
-    transform: rotate(270deg);
-  } */
+
+  input.track-volume[type=range]::-webkit-slider-thumb {
+    box-shadow: -2px 2px 1px #1b1b1b, inset -1px -1px 2px #eee; /* Add cool effects to your sliders! */
+    background-image: url(/assets/VolumeUp-vertical.svg);
+    background-size: 18px;
+    border-top: 1px solid rgb(219, 219, 219);
+    border-left: none;
+    border-bottom: none;
+    border-right: 1px solid rgb(219, 219, 219);
+
+  }
   
   /* All the same stuff for Firefox */
   input.volume[type=range]::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    box-shadow: 1px 1px 1px #1b1b1b, 0px 0px 1px #1b1b1b;
     border: 1px solid #000000;
-    height: 16px;
-    width: 24px;
-    border-radius: 3px;
+    height: 28px;
+    width: 28px;
+    border-radius: 14px;
     background: #d8d7d7;
     cursor: pointer;
   }
   
   /* All the same stuff for IE */
   input[type=range]::-ms-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    box-shadow: 1px 1px 1px #1b1b1b, 0px 0px 1px #1b1b1b;
     border: 1px solid #000000;
-    height: 24px;
-    width: 16px;
-    border-radius: 3px;
+    height: 28px;
+    width: 28px;
+    border-radius: 14px;
     background: #ffffff;
     cursor: pointer;
   }
 
   /*STYLE VOLUME TRACK*/
   input.volume[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 24px;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: #3071a9;
@@ -111,9 +116,9 @@ input.volume[type=range] {
     border: 0.2px solid #010101;
   }
 
-  /*input#trackVolume::-webkit-slider-runnable-track{
-
-  }*/
+  input.track-volume[type=range]::-webkit-slider-runnable-track {
+    box-shadow: -1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
   
   input.volume[type=range]:focus::-webkit-slider-runnable-track {
     background: #367ebd;
@@ -121,7 +126,7 @@ input.volume[type=range] {
   
   input.volume[type=range]::-moz-range-track {
     width: 100%;
-    height: 8.4px;
+    height: 24px;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: #3071a9;
@@ -131,7 +136,7 @@ input.volume[type=range] {
   
   input.volume[type=range]::-ms-track {
     width: 100%;
-    height: 8.4px;
+    height: 24px;
     cursor: pointer;
     background: transparent;
     border-color: transparent;
