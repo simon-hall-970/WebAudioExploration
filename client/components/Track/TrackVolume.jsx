@@ -16,8 +16,8 @@ class TrackVolume extends React.Component {
             const volumeWrapperElement = document.getElementById(this.trackId).parentElement
             let heightStyle = {
                 width: `${volumeWrapperElement.clientHeight}px`,
-                top: `${volumeWrapperElement.clientHeight - 26}px`
-                }
+                top: `${volumeWrapperElement.clientHeight - 16.5}px`
+            }
             this.setState({style: heightStyle})
     }
 

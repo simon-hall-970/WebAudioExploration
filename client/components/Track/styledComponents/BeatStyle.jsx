@@ -9,7 +9,7 @@ const NoteStyle = styled.div`
     /* left: 50%;
     translate: -50%; */
     margin: 0 2px;
-    height: 120px;
+    height: 50px;
     flex-grow: 1;
     flex-shrink: 0;
     background-color: white;

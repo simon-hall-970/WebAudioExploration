@@ -6,7 +6,6 @@ function MasterVolume () {
     const volumeHandler = (evt) => {
         let value = parseInt(evt.target.value, 10)
         masterGain.gain.value = value/100
-        console.log(masterGain.gain.value)
     }
 
     return (
