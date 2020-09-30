@@ -16,24 +16,25 @@ class TrackControls extends React.Component {
     }
 
     //play function plays sound source once to check the sound state.
-    test = () => {
-        let buffer = this.props.kit[this.state.track].buffer
-        if(audioCtx.state === 'suspended') {
-            audioCtx.resume()
-            .then(playSample(buffer))
-            .then(audioCtx.suspend())
-        }
-        else {
-            playSample(buffer)
-        }
+    test = () => {            
+            let buffer = this.props.kit[this.state.track].buffer
+            if(audioCtx.state === 'suspended') {
+                audioCtx.resume()
+                .then(playSample(buffer))
+                .then(audioCtx.suspend())
+            }
+            else {
+                playSample(buffer)
+            }
     }
 
     render() {
+        let kitLength = Object.keys(this.props.kit).length
         return(
                 <div className = 'track-controls' >
                     
                     <TrackVolume track={this.props.track}/>
-                    <div className = "track-face" onClick={this.test} >
+                    <div className = "track-face" onClick={kitLength === 0 ? null : this.test} >
                         <SampleLoad track = {this.state.track} />
                     </div>
                 </div>
