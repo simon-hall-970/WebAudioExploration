@@ -29,8 +29,6 @@ class TrackVolume extends React.Component {
     
 
     render () {
-        console.log(this.state.width)
-        console.log(this.trackId)
         return (
             <div className="track-vol-wrapper">
                 <input id={this.trackId} className="track-volume volume" style={this.state.style} type="range" max="100" min="0" step='1' onChange={this.volumeHandler} />               

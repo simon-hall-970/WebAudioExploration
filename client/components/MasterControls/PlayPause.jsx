@@ -12,10 +12,15 @@ class PlayPause extends React.Component {
 
     componentDidMount(){
         audioCtx.suspend()
+        if(this.props.kit == {}) {
+            this.setState({disablePlay: false})
+        } else {
+            this.setState({disablePplay: true})
+        }
     }
 
     state = {
-        disablePlay: false,
+        disablePlay: true,
         isPlaying: false
     }
 
